@@ -206,7 +206,6 @@ To run and preview the portfolio locally:
 * **LinkedIn:** [linkedin.com/in/isthatabbhi](https://linkedin.com/in/isthatabbhi)
 * **GitHub:** [github.com/isthatabbhi](https://github.com/isthatabbhi)
 * **Email:** [corp.abhishekk@gmail.com](mailto:corp.abhishekk@gmail.com)
-* **Phone:** +91 8340172491
 
 ---
 
