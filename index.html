@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="The portfolio of Abhishek Kumar - cloud, data, and software engineering." />
+  <title>Abhishek Kumar | Cloud &amp; Data Engineering Portfolio</title>
+  
+  <!-- Favicon & Touch Icons -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="alternate icon" type="image/png" href="images/portrait.png" />
+  <link rel="apple-touch-icon" href="images/portrait.png" />
+  <meta name="theme-color" content="#0a0a0a" />
+
+  <!-- OpenGraph Metadata -->
+  <meta property="og:title" content="Abhishek Kumar | Cloud &amp; Data Engineering Portfolio" />
+  <meta property="og:description" content="Systems that make the invisible feel inevitable. Cloud, data, and distributed engineering portfolio of Abhishek Kumar." />
+  <meta property="og:image" content="images/portrait.png" />
+  <meta property="og:url" content="https://isthatabbhi.tech" />
+  <meta property="og:type" content="website" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+</head>
+<body>
+
+  <!-- Scroll Progress Indicator -->
+  <div id="scroll-progress" class="scroll-progress-bar" aria-hidden="true"></div>
+
+  <!-- Film Grain Overlay -->
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- Floating Toast Notification -->
+  <div id="toast" class="toast-notification" role="status" aria-live="polite"></div>
+
+  <!-- Back to Top Floating Pill -->
+  <button id="back-to-top" class="back-to-top-btn" aria-label="Back to top">
+    Top
+  </button>
+
+  <!-- Interactive Resume Preview Modal -->
+  <div id="resume-modal-overlay" class="resume-modal-overlay" data-lenis-prevent="true" aria-hidden="true">
+    <div class="resume-modal" role="dialog" aria-modal="true" aria-label="Resume Preview for Abhishek Kumar" data-lenis-prevent="true">
+      <div class="resume-modal-header">
+        <h3><i class="fas fa-file-pdf"></i> Abhishek Kumar - Resume</h3>
+        <div class="resume-modal-actions">
+          <a href="Resume_ABHISHEK_KUMAR.pdf" download class="resume-download-btn">
+            <i class="fas fa-download"></i> Download PDF
+          </a>
+          <button id="resume-close-btn" class="resume-close-btn" aria-label="Close resume preview">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+      </div>
+      <div class="resume-modal-body" data-lenis-prevent="true">
+        <iframe class="resume-iframe" src="Resume_ABHISHEK_KUMAR.pdf#toolbar=1" title="Abhishek Kumar Resume PDF Preview"></iframe>
+      </div>
+    </div>
+  </div>
+
+  <!-- FinGuard Deep-Dive Project Drawer -->
+  <div id="project-drawer-overlay" class="project-drawer-overlay" data-lenis-prevent="true">
+    <aside class="project-drawer" data-lenis-prevent="true" aria-label="Project details for FinGuard">
+      <div class="drawer-chrome">
+        <button id="drawer-close-btn" class="drawer-close-btn" aria-label="Close project drawer">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+
+      <div class="drawer-scroll" data-lenis-prevent="true">
+      <div class="drawer-kicker">/ Project Architecture</div>
+      <h2 class="drawer-title">FinGuard</h2>
+
+      <div class="drawer-tags">
+        <span class="drawer-tag">Azure Databricks</span>
+        <span class="drawer-tag">PySpark</span>
+        <span class="drawer-tag">Confluent Kafka</span>
+        <span class="drawer-tag">Delta Lake</span>
+        <span class="drawer-tag">Medallion Flow</span>
+      </div>
+
+      <div class="drawer-body">
+        <div class="drawer-section-title"><i class="fas fa-layer-group"></i> Architecture Overview</div>
+        <p>
+          FinGuard is an end-to-end streaming data pipeline engineered to ingest, clean, score, and detect credit card fraud in real-time. Built around a Delta Lake medallion architecture with zero data loss.
+        </p>
+
+        <div class="drawer-arch-box">
+          <strong>1. Bronze Layer (Raw Ingestion):</strong><br />
+          Kafka streaming topics &rarr; PySpark Structured Streaming &rarr; Append-only Delta Tables.<br /><br />
+          <strong>2. Silver Layer (Cleaned &amp; Validated):</strong><br />
+          Schema enforcement, deduplication, timestamp normalization, and feature transformations.<br /><br />
+          <strong>3. Gold Layer (Business &amp; Fraud Signals):</strong><br />
+          Real-time risk scoring, anomaly detection, automated email alert triggers, and BI aggregates.
+        </div>
+
+        <div class="drawer-section-title"><i class="fas fa-tachometer-alt"></i> Key Engineering Highlights</div>
+        <p>
+          &bull; <strong>Low-Latency Processing:</strong> Micro-batch streaming with sub-second ingestion latency across distributed PySpark clusters.<br />
+          &bull; <strong>ACID Guarantees:</strong> Delta Lake transaction logs prevent partial commits and enable time-travel auditability.<br />
+          &bull; <strong>Automated Alerting:</strong> Triggered instant notification workflows on high-risk transaction anomalies detected at the Gold stage.
+        </p>
+
+        <div class="drawer-section-title"><i class="fas fa-tools"></i> Tech Stack &amp; Tools</div>
+        <p>
+          Azure Databricks &bull; PySpark Structured Streaming &bull; Confluent Kafka &bull; Delta Lake &bull; Python &bull; SQL &bull; Azure Storage ADLS Gen2
+        </p>
+      </div>
+      </div>
+    </aside>
+  </div>
+
+  <!-- Header Navigation -->
+  <header class="site-nav" data-testid="site-nav">
+    <a class="site-logo" href="#top" data-testid="site-logo">
+      AK<span class="site-logo-mark">/</span>
+    </a>
+
+    <nav class="desktop-nav" aria-label="Primary navigation" data-testid="desktop-navigation">
+      <a href="#about" data-testid="nav-about-link">
+        <span class="roll-wrap"><span class="roll-inner"><span>About</span><span>About</span></span></span>
+      </a>
+      <a href="#work" data-testid="nav-work-link">
+        <span class="roll-wrap"><span class="roll-inner"><span>Work</span><span>Work</span></span></span>
+      </a>
+      <a href="#capabilities" data-testid="nav-capabilities-link">
+        <span class="roll-wrap"><span class="roll-inner"><span>Capabilities</span><span>Capabilities</span></span></span>
+      </a>
+      <a href="#certifications" data-testid="nav-certifications-link">
+        <span class="roll-wrap"><span class="roll-inner"><span>Certifications</span><span>Certifications</span></span></span>
+      </a>
+      <button class="nav-resume-badge open-resume-modal-btn" data-testid="nav-resume-link" title="Preview Verified Resume PDF">
+        <i class="fas fa-file-pdf"></i> Resume
+      </button>
+    </nav>
+
+    <a class="nav-contact" href="#contact" data-testid="nav-contact-link">
+      <span class="roll-wrap"><span class="roll-inner"><span>Let's talk</span><span>Let's talk</span></span></span>
+    </a>
+
+    <button class="mobile-menu-button" type="button" aria-label="Open menu" data-testid="mobile-menu-toggle-button">
+      <i class="fas fa-bars"></i>
+    </button>
+  </header>
+
+  <!-- Mobile Navigation Menu -->
+  <nav class="mobile-nav" aria-label="Mobile navigation" data-testid="mobile-navigation">
+    <a href="#about">About</a>
+    <a href="#work">Work</a>
+    <a href="#capabilities">Capabilities</a>
+    <a href="#certifications">Certifications</a>
+    <button class="open-resume-modal-btn" style="color:#fff; font-family: var(--font-serif); font-size: 1.8rem;">Resume (Preview)</button>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section class="hero-section section-frame is-revealed" id="top" data-testid="hero-section">
+      <div class="hero-copy">
+        <div class="reveal-mask">
+          <p class="eyebrow reveal-elem" data-testid="hero-eyebrow">Cloud / data / software engineering</p>
+        </div>
+        <div class="reveal-mask">
+          <h1 class="hero-heading reveal-elem delay-1" data-testid="hero-heading">
+            Abhishek<span>Kumar</span>
+          </h1>
+        </div>
+
+        <div class="hero-lower reveal-fade delay-2">
+          <p class="hero-description" data-testid="hero-description">
+            MCA student at JAIN University, Bengaluru. I build resilient data systems with a cloud-native mindset - from first pipeline to production signal.
+          </p>
+          <a class="text-link" href="#about" data-testid="hero-about-link">
+            <span class="roll-wrap"><span class="roll-inner"><span>Explore background</span><span>Explore background</span></span></span>
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-portrait-wrap reveal-fade delay-1" data-testid="hero-portrait-frame">
+        <img class="hero-portrait" src="images/portrait.png" alt="Abhishek Kumar" data-testid="hero-portrait-image" />
+        <div class="hero-portrait-note" data-testid="hero-portrait-note">
+          <span>01 / 01</span>
+          <span>Based in Bengaluru</span>
+        </div>
+      </div>
+
+      <div class="hero-meta reveal-fade delay-3" data-testid="hero-meta">
+        <span>Available for software engineering roles</span>
+        <span>2026 to Present</span>
+      </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section class="intro-section section-frame" id="about" data-testid="about-section">
+      <div class="section-kicker reveal-fade" data-testid="about-kicker">/ About</div>
+      <div class="intro-grid">
+        <div class="reveal-mask">
+          <h2 class="section-heading intro-heading reveal-elem delay-1" data-testid="about-heading">
+            Systems that make the invisible feel inevitable
+          </h2>
+        </div>
+        <div class="intro-copy reveal-fade delay-2">
+          <p data-testid="about-description">
+            I'm an MCA student at JAIN University, Bengaluru, specialising in Cloud Technology. My background covers Python, PySpark, SQL, AWS, and Azure Databricks, and I've been putting those to use building end-to-end data systems during my internship and personal projects.
+          </p>
+          <p data-testid="about-description-secondary">
+            I'm currently looking for a software engineering role where I can contribute to production-grade solutions, learn from ambitious teams, and keep building with intention.
+          </p>
+          <button class="outline-button open-resume-modal-btn" type="button" data-testid="resume-open-link">
+            <i class="fas fa-file-pdf"></i> View résumé
+          </button>
+        </div>
+      </div>
+
+      <div class="signal-grid reveal-fade delay-3" data-testid="about-stats-grid">
+        <div class="signal-card" data-testid="about-stat-cloud-card">
+          <i class="fas fa-cloud"></i>
+          <strong data-testid="about-stat-cloud-value">Cloud-native</strong>
+          <span data-testid="about-stat-cloud-label">by default</span>
+        </div>
+        <div class="signal-card" data-testid="about-stat-sgpa-card">
+          <span class="stat-number" data-testid="about-stat-sgpa-value">8.3</span>
+          <span data-testid="about-stat-sgpa-label">MCA SGPA / 10</span>
+        </div>
+        <div class="signal-card signal-card-accent" data-testid="about-stat-stack-card">
+          <i class="fas fa-database"></i>
+          <strong data-testid="about-stat-stack-value">End-to-end</strong>
+          <span data-testid="about-stat-stack-label">data systems</span>
+        </div>
+        <div class="signal-card" data-testid="about-stat-cgpa-card">
+          <span class="stat-number" data-testid="about-stat-cgpa-value">8.2</span>
+          <span data-testid="about-stat-cgpa-label">BCA CGPA / 10</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SELECTED WORK SECTION -->
+    <section class="work-section section-frame" id="work" data-testid="work-section">
+      <div class="section-header-row">
+        <div>
+          <div class="section-kicker reveal-fade" data-testid="work-kicker">/ Selected work</div>
+          <div class="reveal-mask">
+            <h2 class="section-heading reveal-elem delay-1" data-testid="work-heading">Build to hold up</h2>
+          </div>
+        </div>
+        <span class="section-aside reveal-fade delay-2" data-testid="work-aside">03 projects / 01 direction</span>
+      </div>
+
+      <div class="project-list" data-testid="project-list">
+        
+        <!-- Project 1: FinGuard -->
+        <article class="project-card reveal-fade" data-testid="project-finguard-card" title="Click to view architectural deep-dive">
+          <div class="project-image-wrap">
+            <img class="project-image" src="https://images.unsplash.com/photo-1615677679325-4a33c6d6b010?auto=format&fit=crop&w=1400&q=85" alt="FinGuard project visual" data-testid="project-01-image" />
+            <span class="project-index" style="color: #ff5c35;" data-testid="project-01-index">01</span>
+          </div>
+          <div class="project-content">
+            <div class="project-header">
+              <div>
+                <h3 data-testid="project-01-name">FinGuard</h3>
+                <p class="project-kind" data-testid="project-01-kind">Real-time data engineering</p>
+              </div>
+              <div class="project-detail">
+                <span data-testid="project-01-year">2026</span>
+              </div>
+            </div>
+            <p class="project-summary" data-testid="project-01-summary">
+              A streaming credit card fraud detection system designed around speed, quality, and observability on Databricks, PySpark, Confluent Kafka, and Delta Lake medallion architecture. <em style="color: var(--accent-light); font-style: normal; font-size: 0.85rem; display: block; margin-top: 0.5rem;">Click to explore architecture</em>
+            </p>
+          </div>
+        </article>
+
+        <!-- Project 2: Cloud Atlas -->
+        <article class="project-card reveal-fade delay-1" data-testid="project-cloud-atlas-card">
+          <div class="project-image-wrap">
+            <img class="project-image" src="https://images.unsplash.com/photo-1484557052118-f32bd25b45b5?auto=format&fit=crop&w=1400&q=85" alt="Cloud Atlas project visual" data-testid="project-02-image" />
+            <span class="project-index" style="color: #d0d5d8;" data-testid="project-02-index">02</span>
+          </div>
+          <div class="project-content">
+            <div class="project-header">
+              <div>
+                <h3 data-testid="project-02-name">Cloud Atlas</h3>
+                <p class="project-kind" data-testid="project-02-kind">Infrastructure &amp; automation</p>
+              </div>
+              <div class="project-detail">
+                <span data-testid="project-02-year">Selected practice</span>
+              </div>
+            </div>
+            <p class="project-summary" data-testid="project-02-summary">
+              Cloud-native architecture thinking translated into clean, repeatable pipeline systems and resilient infrastructure on AWS and Azure.
+            </p>
+          </div>
+        </article>
+
+        <!-- Project 3: Signal / Noise -->
+        <article class="project-card reveal-fade delay-2" data-testid="project-signal-noise-card">
+          <div class="project-image-wrap">
+            <img class="project-image" src="https://images.unsplash.com/photo-1708464556100-06938ff3417e?auto=format&fit=crop&w=1400&q=85" alt="Signal Noise project visual" data-testid="project-03-image" />
+            <span class="project-index" style="color: #ffb22e;" data-testid="project-03-index">03</span>
+          </div>
+          <div class="project-content">
+            <div class="project-header">
+              <div>
+                <h3 data-testid="project-03-name">Signal / Noise</h3>
+                <p class="project-kind" data-testid="project-03-kind">Monitoring &amp; data products</p>
+              </div>
+              <div class="project-detail">
+                <span data-testid="project-03-year">Selected practice</span>
+              </div>
+            </div>
+            <p class="project-summary" data-testid="project-03-summary">
+              Dashboards, pipeline monitoring, and developer workflows that make complex data infrastructure easier to read, inspect, and scale.
+            </p>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- CAPABILITIES SECTION -->
+    <section class="capabilities-section section-frame" id="capabilities" data-testid="capabilities-section">
+      <div class="section-kicker reveal-fade" data-testid="capabilities-kicker">/ Capabilities</div>
+      <div class="capabilities-layout">
+        <div class="reveal-mask">
+          <h2 class="section-heading reveal-elem delay-1" data-testid="capabilities-heading">
+            The stack<br /><em>behind</em> the signal
+          </h2>
+        </div>
+        <div class="capabilities-list reveal-fade delay-2" data-testid="capabilities-list">
+          <div class="capability-item" data-testid="capability-1-item">
+            <span>01</span>
+            <strong>Python &amp; PySpark</strong>
+          </div>
+          <div class="capability-item" data-testid="capability-2-item">
+            <span>02</span>
+            <strong>SQL &amp; data modeling</strong>
+          </div>
+          <div class="capability-item" data-testid="capability-3-item">
+            <span>03</span>
+            <strong>AWS infrastructure</strong>
+          </div>
+          <div class="capability-item" data-testid="capability-4-item">
+            <span>04</span>
+            <strong>Azure Data Factory</strong>
+          </div>
+          <div class="capability-item" data-testid="capability-5-item">
+            <span>05</span>
+            <strong>Azure Databricks</strong>
+          </div>
+          <div class="capability-item" data-testid="capability-6-item">
+            <span>06</span>
+            <strong>Delta Lake architecture</strong>
+          </div>
+          <div class="capability-item" data-testid="capability-7-item">
+            <span>07</span>
+            <strong>Kafka &amp; streaming</strong>
+          </div>
+          <div class="capability-item" data-testid="capability-8-item">
+            <span>08</span>
+            <strong>Automation tooling</strong>
+          </div>
+        </div>
+      </div>
+      <div class="capability-footnote reveal-fade delay-3" data-testid="capabilities-footnote">
+        <i class="fas fa-terminal"></i>
+        <span>Also fluent in Java, C/C++, JavaScript, PostgreSQL, MySQL, Git, Linux, and REST APIs.</span>
+      </div>
+    </section>
+
+    <!-- CERTIFICATIONS SECTION -->
+    <section class="certs-section section-frame" id="certifications" data-testid="certifications-section">
+      <div class="section-header-row">
+        <div>
+          <div class="section-kicker reveal-fade" data-testid="certs-kicker">/ Certifications</div>
+          <div class="reveal-mask">
+            <h2 class="section-heading reveal-elem delay-1" data-testid="certs-heading">Industry verified</h2>
+          </div>
+        </div>
+        <span class="section-aside reveal-fade delay-2">09 credentials / verified links</span>
+      </div>
+
+      <div class="certs-grid reveal-fade delay-2">
+        <!-- Google -->
+        <a href="https://www.coursera.org/account/accomplishments/verify/QCRNHPGQRGUS" target="_blank" rel="noopener noreferrer" class="cert-card-editorial">
+          <div class="cert-logo-wrap">
+            <img class="cert-logo" src="images/logos/google.png" alt="Google logo" />
+          </div>
+          <div class="cert-issuer">Google</div>
+          <div class="cert-name">Python</div>
+          <span class="cert-action">Verify ↗</span>
+        </a>
+
+        <!-- Accenture -->
+        <a href="https://drive.google.com/file/d/1ZXYQLix91KNKLib0xQm9vN8mRdjkgBsk/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="cert-card-editorial">
+          <div class="cert-logo-wrap">
+            <img class="cert-logo" src="images/logos/accenture.png" alt="Accenture logo" />
+          </div>
+          <div class="cert-issuer">Accenture</div>
+          <div class="cert-name">Artificial Intelligence</div>
+          <span class="cert-action">Verify ↗</span>
+        </a>
+
+        <!-- Meta -->
+        <a href="https://www.coursera.org/account/accomplishments/verify/QZCMLD7VSYG8" target="_blank" rel="noopener noreferrer" class="cert-card-editorial">
+          <div class="cert-logo-wrap">
+            <img class="cert-logo" src="images/logos/meta.png" alt="Meta logo" />
+          </div>
+          <div class="cert-issuer">Meta</div>
+          <div class="cert-name">MySQL</div>
+          <span class="cert-action">Verify ↗</span>
+        </a>
+
+        <!-- Databricks -->
+        <a href="https://credentials.databricks.com/e3b84c1a-03f7-4a1f-a2e9-527b6b390b30#acc.uUQW2jN4" target="_blank" rel="noopener noreferrer" class="cert-card-editorial">
+          <div class="cert-logo-wrap">
+            <img class="cert-logo" src="images/logos/databricks.png" alt="Databricks logo" />
+          </div>
+          <div class="cert-issuer">Databricks</div>
+          <div class="cert-name">Generative AI</div>
+          <span class="cert-action">Verify ↗</span>
+        </a>
+
+        <!-- Oracle -->
+        <a href="https://catalog-education.oracle.com/pls/certview/sharebadge?id=6563F5209FFED4AD438BD20F8CFDE49D61503067EA6D53A2EEF40ADB5675596E" target="_blank" rel="noopener noreferrer" class="cert-card-editorial">
+          <div class="cert-logo-wrap">
+            <img class="cert-logo" src="images/logos/oracle.png" alt="Oracle logo" />
+          </div>
+          <div class="cert-issuer">Oracle</div>
+          <div class="cert-name">OCI AI</div>
+          <span class="cert-action">Verify ↗</span>
+        </a>
+
+        <!-- Anthropic -->
+        <a href="https://verify.skilljar.com/c/jitr3dnn64a2" target="_blank" rel="noopener noreferrer" class="cert-card-editorial">
+          <div class="cert-logo-wrap">
+            <img class="cert-logo" src="images/logos/anthropic.png" alt="Anthropic logo" />
+          </div>
+          <div class="cert-issuer">Anthropic</div>
+          <div class="cert-name">MCP</div>
+          <span class="cert-action">Verify ↗</span>
+        </a>
+
+        <!-- AWS Academy -->
+        <a href="https://www.credly.com/badges/bc45ecdd-f00c-42ab-afd6-fc3fb03881c0/public_url" target="_blank" rel="noopener noreferrer" class="cert-card-editorial">
+          <div class="cert-logo-wrap">
+            <img class="cert-logo" src="images/logos/aws.png" alt="AWS Academy logo" />
+          </div>
+          <div class="cert-issuer">AWS Academy</div>
+          <div class="cert-name">Cloud Architect</div>
+          <span class="cert-action">Verify ↗</span>
+        </a>
+
+        <!-- AWS Cloud Practitioner -->
+        <a href="https://drive.google.com/file/d/19BGcFJjen0uocVcTjHFEOxQ__ej6TWKh/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="cert-card-editorial">
+          <div class="cert-logo-wrap">
+            <img class="cert-logo" src="images/logos/aws.png" alt="AWS logo" />
+          </div>
+          <div class="cert-issuer">AWS</div>
+          <div class="cert-name">Cloud Practitioner</div>
+          <span class="cert-action">Verify ↗</span>
+        </a>
+
+        <!-- Deloitte -->
+        <a href="https://drive.google.com/file/d/1Z9uEaSCXO_lvbEzC7vSk6GCxlCKXcLVT/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="cert-card-editorial">
+          <div class="cert-logo-wrap">
+            <img class="cert-logo" src="images/logos/deloitte.png" alt="Deloitte logo" />
+          </div>
+          <div class="cert-issuer">Deloitte</div>
+          <div class="cert-name">Real-world Readiness</div>
+          <span class="cert-action">Verify ↗</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- TIMELINE SECTION -->
+    <section class="experience-section section-frame" data-testid="experience-section">
+      <div class="section-header-row">
+        <div>
+          <div class="section-kicker reveal-fade" data-testid="experience-kicker">/ Timeline</div>
+          <div class="reveal-mask">
+            <h2 class="section-heading reveal-elem delay-1" data-testid="experience-heading">Context matters</h2>
+          </div>
+        </div>
+        <span class="section-aside reveal-fade delay-2">Experience / education</span>
+      </div>
+
+      <div class="timeline-list reveal-fade delay-2" data-testid="timeline-list">
+        <!-- Experience 1 -->
+        <div class="timeline-item" data-testid="timeline-1-item">
+          <span class="timeline-count">01</span>
+          <div class="timeline-main">
+            <h3 data-testid="timeline-1-role">Data Engineering Intern</h3>
+            <p data-testid="timeline-1-company">
+              J2D Technologies Private Limited <span class="timeline-loc">&bull; Bengaluru</span>
+            </p>
+          </div>
+          <p class="timeline-detail" data-testid="timeline-1-detail">
+            Designed Azure Data Factory pipelines, built a Databricks monitoring dashboard, and automated large-scale transformations with PySpark.
+          </p>
+          <span class="timeline-date" data-testid="timeline-1-date">Jun 2026 - Jul 2026</span>
+        </div>
+
+        <!-- Education 2 -->
+        <div class="timeline-item" data-testid="timeline-2-item">
+          <span class="timeline-count">02</span>
+          <div class="timeline-main">
+            <h3 data-testid="timeline-2-role">MCA in Cloud</h3>
+            <p data-testid="timeline-2-company">
+              JAIN (Deemed-to-be-University) <span class="timeline-loc">&bull; Bengaluru</span>
+            </p>
+          </div>
+          <p class="timeline-detail" data-testid="timeline-2-detail">
+            Specializing in storage and cloud technology. SGPA 8.3/10, with AWS Academy Cloud Architecting training completed.
+          </p>
+          <span class="timeline-date" data-testid="timeline-2-date">Aug 2025 - Present</span>
+        </div>
+
+        <!-- Education 3 -->
+        <div class="timeline-item" data-testid="timeline-3-item">
+          <span class="timeline-count">03</span>
+          <div class="timeline-main">
+            <h3 data-testid="timeline-3-role">BCA in Computer Science</h3>
+            <p data-testid="timeline-3-company">
+              Aryabhatta Knowledge University <span class="timeline-loc">&bull; Patna</span>
+            </p>
+          </div>
+          <p class="timeline-detail" data-testid="timeline-3-detail">
+            Built a foundation in computer science, systems thinking, and collaborative technical work. CGPA 8.2/10.
+          </p>
+          <span class="timeline-date" data-testid="timeline-3-date">Jun 2021 - Jun 2024</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section class="contact-section" id="contact" data-testid="contact-section">
+      <div class="contact-inner section-frame">
+        <div class="section-kicker reveal-fade" data-testid="contact-kicker">/ Contact</div>
+        <div class="reveal-mask">
+          <h2 class="contact-heading reveal-elem delay-1" data-testid="contact-heading">
+            Let's build what's next
+          </h2>
+        </div>
+        <div class="contact-bottom reveal-fade delay-2">
+          <p data-testid="contact-description">
+            Have a system to shape, a problem to untangle, or a team looking for a cloud-native thinker? I'd like to hear about it.
+          </p>
+          <div class="contact-actions">
+            <a class="contact-email" href="mailto:corp.abhishekk@gmail.com" data-testid="contact-email-link">
+              <span class="roll-wrap"><span class="roll-inner"><span>corp.abhishekk@gmail.com</span><span>corp.abhishekk@gmail.com</span></span></span>
+            </a>
+            <button class="copy-email-btn" data-email="corp.abhishekk@gmail.com" title="Copy email address to clipboard">
+              <i class="far fa-copy"></i> Copy Email
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer section-frame" data-testid="site-footer">
+    <div class="footer-top">
+      <span data-testid="footer-location">Bengaluru</span>
+      <span data-testid="footer-status">Open to opportunities</span>
+    </div>
+    <div class="footer-bottom">
+      <span data-testid="footer-copyright">&copy; 2026 Abhishek Kumar</span>
+      <div class="footer-links">
+        <a href="tel:+918340172491" aria-label="Call Abhishek Kumar" data-testid="footer-phone-link">
+          <i class="fas fa-phone"></i>
+        </a>
+        <a href="mailto:corp.abhishekk@gmail.com" aria-label="Email Abhishek Kumar" data-testid="footer-email-link">
+          <i class="fas fa-envelope"></i>
+        </a>
+        <a href="https://linkedin.com/in/isthatabbhi" target="_blank" rel="noreferrer" aria-label="LinkedIn" data-testid="footer-linkedin-link">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+        <a href="https://github.com/isthatabbhi" target="_blank" rel="noreferrer" aria-label="GitHub" data-testid="footer-github-link">
+          <i class="fab fa-github"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
