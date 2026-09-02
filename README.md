@@ -15,27 +15,11 @@
 
 ---
 
-## Portfolio Walkthrough and Screenshots
+## Portfolio Overview
 
 <div align="center">
 
-### 1. Hero and Dark Editorial Landing
-![Hero Section Preview](images/screenshots/01-hero-editorial.png)
-
-<br />
-
-### 2. About Section and Engineering Signals
-![About Section Preview](images/screenshots/02-about-and-signals.png)
-
-<br />
-
-### 3. Selected Work and Real-Time Data Engineering
-![Selected Work Preview](images/screenshots/03-selected-work.png)
-
-<br />
-
-### 4. Verified Industry Certifications and Contextual Timeline
-![Certifications and Timeline Preview](images/screenshots/04-certifications-timeline.png)
+![Full portfolio homepage preview](images/screenshots/full-site-ss.png)
 
 </div>
 
