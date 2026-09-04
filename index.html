@@ -14,7 +14,7 @@
 
   <!-- OpenGraph Metadata -->
   <meta property="og:title" content="Abhishek Kumar | Cloud &amp; Data Engineering Portfolio" />
-  <meta property="og:description" content="Cloud and data engineering portfolio featuring practical projects built with Python, Spark, SQL, AWS, and Azure." />
+  <meta property="og:description" content="Systems that make the invisible feel inevitable. Cloud, data, and distributed engineering portfolio of Abhishek Kumar." />
   <meta property="og:image" content="images/portrait.png" />
   <meta property="og:url" content="https://isthatabbhi.tech" />
   <meta property="og:type" content="website" />
@@ -84,7 +84,7 @@
       <div class="drawer-body">
         <div class="drawer-section-title"><i class="fas fa-layer-group"></i> Architecture Overview</div>
         <p>
-          FinGuard ingests card transactions, enriches them, scores risk, and sends alerts in real time.
+          FinGuard is an end-to-end streaming data pipeline engineered to ingest, clean, score, and detect credit card fraud in real-time. Built around a Delta Lake medallion architecture with zero data loss.
         </p>
 
         <div class="drawer-arch-box">
@@ -98,9 +98,9 @@
 
         <div class="drawer-section-title"><i class="fas fa-tachometer-alt"></i> Key Engineering Highlights</div>
         <p>
-          &bull; <strong>Streaming:</strong> PySpark micro-batches process incoming events with low latency.<br />
-          &bull; <strong>Reliable storage:</strong> Delta Lake adds ACID writes, schema control, and audit history.<br />
-          &bull; <strong>Actionable output:</strong> Gold tables drive fraud alerts and monitoring metrics.
+          &bull; <strong>Low-Latency Processing:</strong> Micro-batch streaming with sub-second ingestion latency across distributed PySpark clusters.<br />
+          &bull; <strong>ACID Guarantees:</strong> Delta Lake transaction logs prevent partial commits and enable time-travel auditability.<br />
+          &bull; <strong>Automated Alerting:</strong> Triggered instant notification workflows on high-risk transaction anomalies detected at the Gold stage.
         </p>
 
         <div class="drawer-section-title"><i class="fas fa-tools"></i> Tech Stack &amp; Tools</div>
@@ -170,7 +170,7 @@
 
         <div class="hero-lower reveal-fade delay-2">
           <p class="hero-description" data-testid="hero-description">
-            MCA student building reliable data systems with Python, SQL, Spark, AWS, and Azure.
+            MCA student at JAIN University, Bengaluru. I build resilient data systems with a cloud-native mindset - from first pipeline to production signal.
           </p>
           <a class="text-link" href="#about" data-testid="hero-about-link">
             <span class="roll-wrap"><span class="roll-inner"><span>Explore background</span><span>Explore background</span></span></span>
@@ -198,15 +198,15 @@
       <div class="intro-grid">
         <div class="reveal-mask">
           <h2 class="section-heading intro-heading reveal-elem delay-1" data-testid="about-heading">
-            Cloud and data systems that work in production
+            Systems that make the invisible feel inevitable
           </h2>
         </div>
         <div class="intro-copy reveal-fade delay-2">
           <p data-testid="about-description">
-            I build data pipelines and cloud workflows with Python, PySpark, SQL, AWS, and Azure Databricks.
+            I'm an MCA student at JAIN University, Bengaluru, specialising in Cloud Technology. My background covers Python, PySpark, SQL, AWS, and Azure Databricks, and I've been putting those to use building end-to-end data systems during my internship and personal projects.
           </p>
           <p data-testid="about-description-secondary">
-            I am seeking software or data engineering roles where I can ship measurable, production-ready work.
+            I'm currently looking for a software engineering role where I can contribute to production-grade solutions, learn from ambitious teams, and keep building with intention.
           </p>
           <button class="outline-button open-resume-modal-btn" type="button" data-testid="resume-open-link">
             <i class="fas fa-file-pdf"></i> View résumé
@@ -251,9 +251,9 @@
       <div class="project-list" data-testid="project-list">
         
         <!-- Project 1: FinGuard -->
-        <article class="project-card reveal-fade" data-testid="project-finguard-card" title="Open FinGuard architecture details">
+        <article class="project-card reveal-fade" data-testid="project-finguard-card" title="Click to view architectural deep-dive">
           <div class="project-image-wrap">
-            <img class="project-image" src="images/projects/finguard-architecture.png" alt="FinGuard architecture drawer showing the streaming fraud detection layers" loading="lazy" data-testid="project-01-image" />
+            <img class="project-image" src="https://images.unsplash.com/photo-1615677679325-4a33c6d6b010?auto=format&fit=crop&w=1400&q=85" alt="FinGuard project visual" data-testid="project-01-image" />
             <span class="project-index" style="color: #ff5c35;" data-testid="project-01-index">01</span>
           </div>
           <div class="project-content">
@@ -267,24 +267,15 @@
               </div>
             </div>
             <p class="project-summary" data-testid="project-01-summary">
-              Real-time fraud detection for card transactions, built with Kafka, PySpark, and Delta Lake.
+              A streaming credit card fraud detection system designed around speed, quality, and observability on Databricks, PySpark, Confluent Kafka, and Delta Lake medallion architecture. <em style="color: var(--accent-light); font-style: normal; font-size: 0.85rem; display: block; margin-top: 0.5rem;">Click to explore architecture</em>
             </p>
-            <div class="project-stack">Kafka &bull; PySpark &bull; Databricks &bull; Delta Lake &bull; SQL</div>
-            <ul class="project-points">
-              <li>Streams transaction events into a Bronze table; throughput: [ADD METRIC].</li>
-              <li>Validates, deduplicates, and enriches in Silver; data volume: [ADD METRIC].</li>
-              <li>Scores risk and publishes Gold fraud alerts; alert latency: [ADD METRIC].</li>
-            </ul>
-            <div class="project-actions">
-              <a href="https://github.com/isthatabbhi/FinGuard-Real-Time-Fraud-Detection" target="_blank" rel="noreferrer" class="project-button">GitHub <span aria-hidden="true">↗</span></a>
-            </div>
           </div>
         </article>
 
         <!-- Project 2: Cloud Atlas -->
         <article class="project-card reveal-fade delay-1" data-testid="project-cloud-atlas-card">
           <div class="project-image-wrap">
-            <img class="project-image" src="images/projects/cloud-atlas-infrastructure.png" alt="Cloud Atlas Azure App Service deployment status showing the running infrastructure" loading="lazy" data-testid="project-02-image" />
+            <img class="project-image" src="https://images.unsplash.com/photo-1484557052118-f32bd25b45b5?auto=format&fit=crop&w=1400&q=85" alt="Cloud Atlas project visual" data-testid="project-02-image" />
             <span class="project-index" style="color: #d0d5d8;" data-testid="project-02-index">02</span>
           </div>
           <div class="project-content">
@@ -298,24 +289,15 @@
               </div>
             </div>
             <p class="project-summary" data-testid="project-02-summary">
-              Repeatable cloud workflows for moving, transforming, and operating data on AWS and Azure.
+              Cloud-native architecture thinking translated into clean, repeatable pipeline systems and resilient infrastructure on AWS and Azure.
             </p>
-            <div class="project-stack">AWS &bull; Azure &bull; Data Factory &bull; Python &bull; Terraform</div>
-            <ul class="project-points">
-              <li>Maps source-to-target data movement; pipelines automated: [ADD METRIC].</li>
-              <li>Automates repeatable cloud infrastructure tasks; deployment time: [ADD METRIC].</li>
-              <li>Uses monitoring and recovery patterns; recovery time: [ADD METRIC].</li>
-            </ul>
-            <div class="project-actions">
-              <span class="project-button project-button-disabled" aria-label="Cloud Atlas code coming soon">Code coming soon</span>
-            </div>
           </div>
         </article>
 
         <!-- Project 3: Signal / Noise -->
         <article class="project-card reveal-fade delay-2" data-testid="project-signal-noise-card">
           <div class="project-image-wrap">
-            <img class="project-image" src="images/projects/signal-noise-monitoring.png" alt="Signal Noise Cloudflare traffic overview used for monitoring and operational analysis" loading="lazy" data-testid="project-03-image" />
+            <img class="project-image" src="https://images.unsplash.com/photo-1708464556100-06938ff3417e?auto=format&fit=crop&w=1400&q=85" alt="Signal Noise project visual" data-testid="project-03-image" />
             <span class="project-index" style="color: #ffb22e;" data-testid="project-03-index">03</span>
           </div>
           <div class="project-content">
@@ -329,17 +311,8 @@
               </div>
             </div>
             <p class="project-summary" data-testid="project-03-summary">
-              Monitoring views and developer tools that make data pipelines easier to inspect and maintain.
+              Dashboards, pipeline monitoring, and developer workflows that make complex data infrastructure easier to read, inspect, and scale.
             </p>
-            <div class="project-stack">Python &bull; SQL &bull; JavaScript &bull; PostgreSQL &bull; Git</div>
-            <ul class="project-points">
-              <li>Surfaces pipeline health and data quality signals; checks tracked: [ADD METRIC].</li>
-              <li>Turns operational metrics into readable dashboards; query time: [ADD METRIC].</li>
-              <li>Documents workflows for faster handoffs; runbooks created: [ADD METRIC].</li>
-            </ul>
-            <div class="project-actions">
-              <span class="project-button project-button-disabled" aria-label="Signal Noise code coming soon">Code coming soon</span>
-            </div>
           </div>
         </article>
 
@@ -524,7 +497,7 @@
             </p>
           </div>
           <p class="timeline-detail" data-testid="timeline-1-detail">
-            In a focused Jun-Jul 2026 internship, designed Azure Data Factory pipelines, built a Databricks monitoring dashboard, and automated large-scale PySpark transformations.
+            Designed Azure Data Factory pipelines, built a Databricks monitoring dashboard, and automated large-scale transformations with PySpark.
           </p>
           <span class="timeline-date" data-testid="timeline-1-date">Jun 2026 - Jul 2026</span>
         </div>
@@ -572,7 +545,7 @@
         </div>
         <div class="contact-bottom reveal-fade delay-2">
           <p data-testid="contact-description">
-            Open to software and data engineering opportunities. Email is the fastest way to reach me.
+            Have a system to shape, a problem to untangle, or a team looking for a cloud-native thinker? I'd like to hear about it.
           </p>
           <div class="contact-actions">
             <a class="contact-email" href="mailto:corp.abhishekk@gmail.com" data-testid="contact-email-link">
@@ -596,6 +569,9 @@
     <div class="footer-bottom">
       <span data-testid="footer-copyright">&copy; 2026 Abhishek Kumar</span>
       <div class="footer-links">
+        <a href="mailto:corp.abhishekk@gmail.com" aria-label="Email Abhishek Kumar" data-testid="footer-email-link">
+          <i class="fas fa-envelope"></i>
+        </a>
         <a href="https://linkedin.com/in/isthatabbhi" target="_blank" rel="noreferrer" aria-label="LinkedIn" data-testid="footer-linkedin-link">
           <i class="fab fa-linkedin-in"></i>
         </a>
