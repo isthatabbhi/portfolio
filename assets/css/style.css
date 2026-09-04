@@ -122,11 +122,13 @@ img {
 .roll-inner {
   display: flex;
   flex-direction: column;
+  height: 200%;
   transition: transform var(--dur-m) var(--ease-in-out);
 }
 
 .roll-inner span {
   display: block;
+  flex: 0 0 50%;
   height: 1.25em;
   line-height: 1.25em;
   white-space: nowrap;
@@ -445,7 +447,7 @@ button:hover .roll-inner {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 15%;
+  object-position: center top;
   filter: grayscale(1) contrast(1.1);
   transition: filter var(--dur-l) var(--ease-in-out), transform var(--dur-l) var(--ease-in-out);
   will-change: transform;
@@ -772,6 +774,63 @@ button:hover .roll-inner {
   color: #a1a1a8;
   font-size: 0.95rem;
   line-height: 1.65;
+}
+
+.project-stack {
+  color: var(--accent-light);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  line-height: 1.5;
+}
+
+.project-points {
+  display: grid;
+  gap: 0.45rem;
+  max-width: 34rem;
+  padding-left: 1.1rem;
+  color: #b1b1b8;
+  font-size: 0.86rem;
+  line-height: 1.5;
+}
+
+.project-points li::marker {
+  color: var(--accent);
+}
+
+.project-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+.project-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  padding: 0.62rem 0.9rem;
+  color: #fff;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition: border-color var(--dur-s) var(--ease-out), background var(--dur-s) var(--ease-out), color var(--dur-s) var(--ease-out);
+}
+
+.project-button:hover {
+  border-color: var(--accent);
+  color: var(--accent-light);
+}
+
+.project-button-primary {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: #0a0a0a;
+}
+
+.project-button-primary:hover {
+  background: var(--accent-light);
+  color: #0a0a0a;
 }
 
 /* Project Drawer */
@@ -1134,8 +1193,10 @@ button:hover .roll-inner {
 /* Certifications Grid */
 .certs-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1.5rem;
+  max-width: 960px;
+  margin-inline: auto;
   margin-top: 3rem;
 }
 
@@ -1145,7 +1206,8 @@ button:hover .roll-inner {
   padding: 1.75rem 1.4rem;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
+  text-align: center;
   background: rgba(255, 255, 255, 0.02);
   transition: border-color var(--dur-m) var(--ease-in-out), transform var(--dur-m) var(--ease-out), background var(--dur-s) var(--ease-out);
 }
@@ -1161,7 +1223,7 @@ button:hover .roll-inner {
   height: 42px;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   margin-bottom: 1.25rem;
   transition: transform var(--dur-m) var(--ease-out);
 }
@@ -1171,10 +1233,8 @@ button:hover .roll-inner {
 }
 
 .cert-card-editorial .cert-logo {
-  max-width: 54px;
-  max-height: 38px;
-  width: auto;
-  height: auto;
+  width: 54px;
+  height: 38px;
   object-fit: contain;
 }
 
@@ -1574,9 +1634,20 @@ button:hover .roll-inner {
     padding-top: 1.25rem;
     padding-right: 1.75rem;
     gap: 1.25rem;
+    padding-right: 0;
   }
   .project-header h3 {
     font-size: clamp(2.5rem, 14vw, 5rem);
+  }
+  .project-actions {
+    padding-bottom: 0.5rem;
+  }
+  .certs-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.8rem;
+  }
+  .cert-card-editorial {
+    padding: 1.35rem 1rem;
   }
   .timeline-item {
     grid-template-columns: 2rem 1fr;
@@ -1635,5 +1706,12 @@ button:hover .roll-inner {
   }
   .signal-card strong {
     font-size: 1.2rem;
+  }
+  .certs-grid {
+    grid-template-columns: 1fr;
+  }
+  .project-button {
+    flex: 1 1 auto;
+    justify-content: center;
   }
 }

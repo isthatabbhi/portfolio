@@ -143,6 +143,12 @@ if (finguardCard) {
   finguardCard.addEventListener('click', openDrawer);
 }
 
+document.querySelectorAll('.project-actions a').forEach(link => {
+  link.addEventListener('click', (e) => {
+    e.stopPropagation();
+  });
+});
+
 if (drawerCloseBtn) {
   drawerCloseBtn.addEventListener('click', closeDrawer);
 }
