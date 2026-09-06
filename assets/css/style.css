@@ -203,8 +203,9 @@ button:hover .roll-inner {
   display: flex;
   align-items: center;
   gap: 2.5rem;
-  margin-left: auto;
-  margin-right: 3rem;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .desktop-nav a,
@@ -796,10 +797,7 @@ button:hover .roll-inner {
 .project-year-arrow {
   display: inline-block;
   color: var(--accent);
-  font-size: 0.9rem;
-  line-height: 1;
-  transform: rotate(45deg);
-  transform-origin: center;
+  flex-shrink: 0;
 }
 
 .timeline-loc {
