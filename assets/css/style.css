@@ -852,14 +852,6 @@ button:hover .roll-inner {
   padding: 0 clamp(1.5rem, 4vw, 3rem) 4rem;
 }
 
-.drawer-project-content {
-  display: none;
-}
-
-.drawer-project-content.is-active {
-  display: block;
-}
-
 .drawer-scroll::-webkit-scrollbar {
   width: 6px;
 }
