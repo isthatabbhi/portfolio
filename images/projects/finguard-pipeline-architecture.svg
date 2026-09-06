@@ -17,7 +17,7 @@
     .container-fill    { fill: #444441; stroke: #898781; }
     .container-dashed  { fill: none; stroke: #898781; stroke-dasharray: 5 5; }
     .txt-title  { font-family: -apple-system, "Segoe UI", Arial, sans-serif; font-size: 14px; font-weight: 500; }
-    .txt-sub    { font-family: -apple-system, "Segoe UI", Arial, sans-serif; font-size: 12px; font-weight: 400; }
+    .txt-sub    { font-family: -apple-system, "Segoe UI", Arial, sans-serif; font-size: 13px; font-weight: 600; }
     .txt-head   { font-family: -apple-system, "Segoe UI", Arial, sans-serif; font-size: 14px; font-weight: 500; }
     .txt-src    { fill: #FFFFFF; }
     .txt-src-sub{ fill: #D6E8FA; }
@@ -57,13 +57,13 @@
 
   <!-- arrows source -> ingest -->
   <line class="arrow-line" x1="145" y1="131" x2="145" y2="164" marker-end="url(#arrow)"/>
-  <text class="txt-sub" x="145" y="150" text-anchor="middle" fill="#5F5E5A">Publish txns</text>
+  <text class="txt-sub" x="145" y="150" text-anchor="middle" fill="#E7E7E2">Publish txns</text>
 
   <line class="arrow-line" x1="340" y1="131" x2="340" y2="164" marker-end="url(#arrow)"/>
-  <text class="txt-sub" x="340" y="150" text-anchor="middle" fill="#5F5E5A">JSON feed</text>
+  <text class="txt-sub" x="340" y="150" text-anchor="middle" fill="#E7E7E2">JSON feed</text>
 
   <line class="arrow-line" x1="535" y1="131" x2="535" y2="164" marker-end="url(#arrow)"/>
-  <text class="txt-sub" x="535" y="150" text-anchor="middle" fill="#5F5E5A">Historical data</text>
+  <text class="txt-sub" x="535" y="150" text-anchor="middle" fill="#E7E7E2">Historical data</text>
 
   <!-- Row 2: ingestion mechanisms -->
   <g>
@@ -87,10 +87,10 @@
 
   <!-- arrows ingest -> bronze -->
   <line class="arrow-line" x1="145" y1="208" x2="145" y2="265" marker-end="url(#arrow)"/>
-  <text class="txt-sub" x="145" y="230" text-anchor="middle" fill="#5F5E5A">Structured streaming</text>
+  <text class="txt-sub" x="145" y="230" text-anchor="middle" fill="#E7E7E2">Structured streaming</text>
 
   <line class="arrow-line" x1="340" y1="208" x2="340" y2="265" marker-end="url(#arrow)"/>
-  <text class="txt-sub" x="340" y="230" text-anchor="middle" fill="#5F5E5A">Cloud files ingestion</text>
+  <text class="txt-sub" x="340" y="230" text-anchor="middle" fill="#E7E7E2">Cloud files ingestion</text>
 
   <!-- Bronze layer -->
   <g>
@@ -107,10 +107,10 @@
 
   <!-- arrows bronze -> silver -->
   <line class="arrow-line" x1="145" y1="321" x2="145" y2="364" marker-end="url(#arrow)"/>
-  <text class="txt-sub" x="145" y="345" text-anchor="middle" fill="#5F5E5A">Cleaning and parsing</text>
+  <text class="txt-sub" x="145" y="345" text-anchor="middle" fill="#E7E7E2">Cleaning and parsing</text>
 
   <line class="arrow-line" x1="340" y1="321" x2="340" y2="364" marker-end="url(#arrow)"/>
-  <text class="txt-sub" x="340" y="345" text-anchor="middle" fill="#5F5E5A">Dedup and schema</text>
+  <text class="txt-sub" x="340" y="345" text-anchor="middle" fill="#E7E7E2">Dedup and schema</text>
 
   <!-- Silver layer -->
   <g>
@@ -130,8 +130,8 @@
   <path class="arrow-line" d="M340 420 V478" marker-end="url(#arrow)"/>
   <path class="arrow-line" d="M535 208 V478" marker-end="url(#arrow)"/>
 
-  <text class="txt-sub" x="245" y="445" text-anchor="middle" fill="#5F5E5A">Real-time join and aggregation</text>
-  <text class="txt-sub" x="480" y="340" text-anchor="middle" fill="#5F5E5A">Real-time join and aggregation</text>
+  <text class="txt-sub" x="245" y="445" text-anchor="middle" fill="#E7E7E2">Real-time join and aggregation</text>
+  <text class="txt-sub" x="480" y="340" text-anchor="middle" fill="#E7E7E2">Real-time join and aggregation</text>
 
   <!-- Gold layer -->
   <g>

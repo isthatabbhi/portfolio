@@ -830,6 +830,7 @@ button:hover .roll-inner {
   -webkit-overflow-scrolling: touch;
   overscroll-behavior: contain;
   touch-action: pan-y;
+  overflow-y: scroll;
   padding: 0 clamp(1.5rem, 4vw, 3rem) 4rem;
 }
 
@@ -938,7 +939,7 @@ button:hover .roll-inner {
 .drawer-outcome {
   display: grid;
   gap: 0.7rem;
-  margin: 1.5rem 0 2rem;
+  margin: 1.5rem 0 0.75rem;
 }
 
 .drawer-outcome div {
@@ -978,7 +979,7 @@ button:hover .roll-inner {
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: #fff;
-  margin: 2.2rem 0 0.9rem;
+  margin: 1.4rem 0 0.9rem;
   display: flex;
   align-items: center;
   gap: 0.55rem;
@@ -1702,6 +1703,17 @@ button:hover .roll-inner {
   .drawer-chrome {
     position: sticky;
     top: 0;
+  }
+  .project-drawer {
+    height: 100dvh;
+    max-height: 100dvh;
+  }
+  .drawer-scroll {
+    display: block;
+    height: calc(100dvh - 4.5rem);
+    max-height: calc(100dvh - 4.5rem);
+    flex: 0 1 auto;
+    overflow-y: scroll;
   }
   .drawer-scroll-cue {
     display: block;

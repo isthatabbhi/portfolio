@@ -119,6 +119,7 @@ document.querySelectorAll('.copy-email-btn').forEach(btn => {
 const drawerOverlay = document.getElementById('project-drawer-overlay');
 const drawerCloseBtn = document.getElementById('drawer-close-btn');
 const drawerElement = document.querySelector('.project-drawer');
+const drawerScroll = document.querySelector('.drawer-scroll');
 const finguardCard = document.querySelector('[data-testid="project-finguard-card"]');
 let drawerPreviousFocus;
 
@@ -128,6 +129,7 @@ function openDrawer() {
     drawerOverlay.classList.add('open');
     document.body.classList.add('modal-open');
     if (lenis) lenis.stop();
+    if (drawerScroll) drawerScroll.scrollTop = 0;
     requestAnimationFrame(() => drawerCloseBtn?.focus());
   }
 }
