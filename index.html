@@ -70,6 +70,7 @@
       </div>
 
       <div class="drawer-scroll" data-lenis-prevent="true">
+        <div class="drawer-scroll-inner">
       <div class="drawer-project-content" data-project-content="finguard">
       <div class="drawer-kicker">/ Project Architecture</div>
       <h2 class="drawer-title">FinGuard</h2>
@@ -139,12 +140,6 @@
             Cloud Atlas modernizes a single-instance Node.js coffee supplier application into independently deployable customer and employee microservices on AWS. The split isolates high-volume catalog traffic from administrative operations while removing the monolith's single point of failure.
           </p>
 
-          <div class="drawer-arch-box">
-            <strong>Ingress</strong> An Application Load Balancer routes public traffic to the Customer service and <code>/admin/*</code> requests to the Employee service.<br /><br />
-            <strong>Compute</strong> Both services run as Docker containers on Amazon ECS with AWS Fargate, removing EC2 provisioning and patching overhead.<br /><br />
-            <strong>Data</strong> Customer reads and employee CRUD operations share an Amazon RDS MySQL database through isolated service boundaries.
-          </div>
-
           <div class="drawer-section-title"><i class="fas fa-rocket"></i> Key Engineering Highlights</div>
           <p>
             &bull; <strong>Zero-Downtime Delivery:</strong> CodePipeline and CodeDeploy shift new ECS revisions through blue/green target groups before production traffic moves.<br />
@@ -159,6 +154,7 @@
           </p>
         </div>
       </div>
+        </div>
       </div>
     </aside>
   </div>
@@ -342,7 +338,7 @@
             <p class="project-summary" data-testid="project-02-summary">
               Modernizes a Node.js monolith into independently deployable customer and employee microservices on AWS. Uses ECS Fargate, an Application Load Balancer, RDS MySQL, and blue/green CI/CD through CodePipeline and CodeDeploy.
             </p>
-            <button class="project-repo-link" type="button" data-testid="project-02-repo-link"><i class="fas fa-arrow-right"></i> More info</button>
+            <button class="project-repo-link" type="button" data-testid="project-02-repo-link">More info</button>
           </div>
         </article>
 

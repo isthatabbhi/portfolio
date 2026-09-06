@@ -116,29 +116,39 @@ document.querySelectorAll('.copy-email-btn').forEach(btn => {
   });
 });
 
-// 4. FinGuard Deep-Dive Drawer
+// 4. Project Deep-Dive Drawer (FinGuard & Cloud Atlas)
 const drawerOverlay = document.getElementById('project-drawer-overlay');
 const drawerCloseBtn = document.getElementById('drawer-close-btn');
 const drawerElement = document.querySelector('.project-drawer');
 const drawerScroll = document.querySelector('.drawer-scroll');
 const finguardCard = document.querySelector('[data-testid="project-finguard-card"]');
 const cloudAtlasCard = document.querySelector('[data-testid="project-cloud-atlas-card"]');
+const cloudAtlasMoreBtn = document.querySelector('[data-testid="project-02-repo-link"]');
 const drawerProjects = document.querySelectorAll('[data-project-content]');
 let drawerPreviousFocus;
-let drawerTouchY = 0;
-let drawerTargetScroll = 0;
-let drawerScrollFrame;
+let drawerLenis;
 
-function easeDrawerScroll() {
-  if (!drawerScroll) return;
-  const distance = drawerTargetScroll - drawerScroll.scrollTop;
-  drawerScroll.scrollTop += distance * 0.22;
-  if (Math.abs(distance) > 0.5) {
-    drawerScrollFrame = requestAnimationFrame(easeDrawerScroll);
-  } else {
-    drawerScroll.scrollTop = drawerTargetScroll;
-    drawerScrollFrame = undefined;
+if (drawerScroll && typeof Lenis !== 'undefined') {
+  drawerLenis = new Lenis({
+    wrapper: drawerScroll,
+    content: drawerScroll.querySelector('.drawer-scroll-inner') || drawerScroll.firstElementChild,
+    duration: 1.1,
+    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+    orientation: 'vertical',
+    gestureOrientation: 'vertical',
+    smoothWheel: true,
+    wheelMultiplier: 1,
+    touchMultiplier: 1.5,
+    infinite: false,
+  });
+
+  function drawerRaf(time) {
+    if (drawerLenis && drawerOverlay?.classList.contains('open')) {
+      drawerLenis.raf(time);
+    }
+    requestAnimationFrame(drawerRaf);
   }
+  requestAnimationFrame(drawerRaf);
 }
 
 function selectDrawerProject(project) {
@@ -149,6 +159,12 @@ function selectDrawerProject(project) {
     const projectName = project === 'cloud-atlas' ? 'Cloud Atlas' : 'FinGuard';
     drawerElement.setAttribute('aria-label', `Project details for ${projectName}`);
   }
+  if (drawerLenis) {
+    drawerLenis.resize();
+    drawerLenis.scrollTo(0, { immediate: true });
+  } else if (drawerScroll) {
+    drawerScroll.scrollTop = 0;
+  }
 }
 
 function openDrawer(project = 'finguard') {
@@ -158,11 +174,12 @@ function openDrawer(project = 'finguard') {
     drawerOverlay.classList.add('open');
     document.body.classList.add('modal-open');
     if (lenis) lenis.stop();
-    if (drawerScroll) {
+    if (drawerLenis) {
+      drawerLenis.start();
+      drawerLenis.resize();
+      drawerLenis.scrollTo(0, { immediate: true });
+    } else if (drawerScroll) {
       drawerScroll.scrollTop = 0;
-      drawerScroll.style.webkitOverflowScrolling = 'touch';
-      drawerScroll.style.touchAction = 'none';
-      drawerTargetScroll = 0;
     }
     requestAnimationFrame(() => drawerCloseBtn?.focus());
   }
@@ -175,7 +192,9 @@ function closeDrawer() {
       document.body.classList.remove('modal-open');
       if (lenis) lenis.start();
     }
-    cancelAnimationFrame(drawerScrollFrame);
+    if (drawerLenis) {
+      drawerLenis.stop();
+    }
     if (drawerPreviousFocus && typeof drawerPreviousFocus.focus === 'function') {
       drawerPreviousFocus.focus();
     }
@@ -188,6 +207,13 @@ if (finguardCard) {
 
 if (cloudAtlasCard) {
   cloudAtlasCard.addEventListener('click', () => openDrawer('cloud-atlas'));
+}
+
+if (cloudAtlasMoreBtn) {
+  cloudAtlasMoreBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    openDrawer('cloud-atlas');
+  });
 }
 
 if (drawerCloseBtn) {
@@ -204,30 +230,6 @@ if (drawerOverlay) {
   drawerOverlay.addEventListener('touchmove', (e) => {
     e.stopPropagation();
   }, { passive: true });
-}
-
-if (drawerScroll) {
-  drawerScroll.addEventListener('touchstart', (event) => {
-    cancelAnimationFrame(drawerScrollFrame);
-    drawerTouchY = event.touches[0].clientY;
-    drawerTargetScroll = drawerScroll.scrollTop;
-  }, { passive: true });
-  drawerScroll.addEventListener('touchmove', (event) => {
-    const currentY = event.touches[0].clientY;
-    drawerTargetScroll -= currentY - drawerTouchY;
-    drawerTargetScroll = Math.max(0, Math.min(drawerTargetScroll, drawerScroll.scrollHeight - drawerScroll.clientHeight));
-    drawerTouchY = currentY;
-    cancelAnimationFrame(drawerScrollFrame);
-    drawerScrollFrame = requestAnimationFrame(easeDrawerScroll);
-    event.preventDefault();
-  }, { passive: false });
-  drawerScroll.addEventListener('wheel', (event) => {
-    drawerTargetScroll += event.deltaY;
-    drawerTargetScroll = Math.max(0, Math.min(drawerTargetScroll, drawerScroll.scrollHeight - drawerScroll.clientHeight));
-    cancelAnimationFrame(drawerScrollFrame);
-    drawerScrollFrame = requestAnimationFrame(easeDrawerScroll);
-    event.preventDefault();
-  }, { passive: false });
 }
 
 // 5. Interactive Resume Preview Modal
