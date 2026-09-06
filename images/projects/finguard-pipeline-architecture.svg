@@ -128,10 +128,8 @@
   <!-- joins into Gold -->
   <path class="arrow-line" d="M145 420 V450 H340 V478" marker-end="url(#arrow)"/>
   <path class="arrow-line" d="M340 420 V478" marker-end="url(#arrow)"/>
-  <path class="arrow-line" d="M535 208 V478" marker-end="url(#arrow)"/>
 
   <text class="txt-sub" x="245" y="445" text-anchor="middle" fill="#A9AAA5">Real-time join and aggregation</text>
-  <text class="txt-sub" x="480" y="340" text-anchor="middle" fill="#A9AAA5">Real-time join and aggregation</text>
 
   <!-- Gold layer -->
   <g>
@@ -142,10 +140,10 @@
 
   <!-- Gold -> outputs -->
   <line class="arrow-line" x1="290" y1="534" x2="240" y2="620" marker-end="url(#arrow)"/>
-  <text class="txt-sub" x="230" y="580" text-anchor="end" fill="#A9AAA5">Trigger email sink</text>
+  <text class="txt-sub" x="230" y="555" text-anchor="end" fill="#A9AAA5">Trigger email sink</text>
 
   <line class="arrow-line" x1="390" y1="534" x2="440" y2="620" marker-end="url(#arrow)"/>
-  <text class="txt-sub" x="450" y="580" text-anchor="start" fill="#A9AAA5">Aggregate metrics</text>
+  <text class="txt-sub" x="450" y="555" text-anchor="start" fill="#A9AAA5">Aggregate metrics</text>
 
   <!-- ===================== SECTION 3: Alerting and analytics ===================== -->
   <rect class="container-dashed" x="40" y="600" width="600" height="130" rx="16" stroke-width="0.5"/>
