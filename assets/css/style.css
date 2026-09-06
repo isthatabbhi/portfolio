@@ -740,17 +740,22 @@ button:hover .roll-inner {
   text-transform: uppercase;
   display: inline-flex;
   align-items: center;
-  gap: 0.55rem;
+  gap: 0;
 }
 
 .project-kind::before {
-  content: '';
+  content: none;
+}
+
+.flag-icon {
   display: inline-block;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--accent);
-  flex-shrink: 0;
+  width: 17px;
+  height: 11px;
+  vertical-align: -1px;
+  margin-right: 0.35rem;
+  border-radius: 2px;
+  box-shadow: 0 0 1px rgba(255, 255, 255, 0.35);
+  object-fit: cover;
 }
 
 .project-detail {
@@ -764,6 +769,16 @@ button:hover .roll-inner {
   padding-top: 0.65rem;
   padding-right: clamp(0.75rem, 2vw, 1.5rem);
   white-space: nowrap;
+}
+
+.timeline-loc {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.timeline-loc::before {
+  content: none;
 }
 
 .project-summary {
