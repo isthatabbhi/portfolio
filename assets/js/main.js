@@ -168,20 +168,6 @@ if (drawerOverlay) {
   }, { passive: true });
 }
 
-if (drawerScroll) {
-  let drawerTouchStartY = 0;
-  let drawerTouchStartScrollTop = 0;
-  drawerScroll.addEventListener('touchstart', (e) => {
-    drawerTouchStartY = e.touches[0].clientY;
-    drawerTouchStartScrollTop = drawerScroll.scrollTop;
-  }, { passive: true });
-  drawerScroll.addEventListener('touchmove', (e) => {
-    const delta = drawerTouchStartY - e.touches[0].clientY;
-    drawerScroll.scrollTop = drawerTouchStartScrollTop + delta;
-    e.preventDefault();
-  }, { passive: false });
-}
-
 // 5. Interactive Resume Preview Modal
 const resumeModalOverlay = document.getElementById('resume-modal-overlay');
 const resumeCloseBtn = document.getElementById('resume-close-btn');

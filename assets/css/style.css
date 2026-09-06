@@ -1691,7 +1691,7 @@ button:hover .roll-inner {
     max-height: calc(100dvh - 4.5rem);
     overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
-    touch-action: none;
+    touch-action: pan-y;
     padding-bottom: 4rem;
   }
   .drawer-scroll-cue {
