@@ -9,25 +9,25 @@
   </defs>
 
   <style>
-    .box-fill-source   { fill: #E6F1FB; stroke: #185FA5; }
-    .box-fill-ingest   { fill: #E1F5EE; stroke: #0F6E56; }
-    .box-fill-medal    { fill: #EEEDFE; stroke: #534AB7; }
-    .box-fill-medal-hl { fill: #EEEDFE; stroke: #3C3489; }
-    .box-fill-out      { fill: #FAECE7; stroke: #993C1D; }
-    .container-fill    { fill: #F1EFE8; stroke: #5F5E5A; }
-    .container-dashed  { fill: none; stroke: #B4B2A9; stroke-dasharray: 5 5; }
+    .box-fill-source   { fill: #0C447C; stroke: #4788C4; }
+    .box-fill-ingest   { fill: #085041; stroke: #31876F; }
+    .box-fill-medal    { fill: #3C3489; stroke: #7770D1; }
+    .box-fill-medal-hl { fill: #3C3489; stroke: #A49FF0; }
+    .box-fill-out      { fill: #712B13; stroke: #C56A43; }
+    .container-fill    { fill: #444441; stroke: #898781; }
+    .container-dashed  { fill: none; stroke: #898781; stroke-dasharray: 5 5; }
     .txt-title  { font-family: -apple-system, "Segoe UI", Arial, sans-serif; font-size: 14px; font-weight: 500; }
     .txt-sub    { font-family: -apple-system, "Segoe UI", Arial, sans-serif; font-size: 12px; font-weight: 400; }
     .txt-head   { font-family: -apple-system, "Segoe UI", Arial, sans-serif; font-size: 14px; font-weight: 500; }
-    .txt-src    { fill: #0C447C; }
-    .txt-src-sub{ fill: #185FA5; }
-    .txt-ing    { fill: #085041; }
-    .txt-med    { fill: #3C3489; }
-    .txt-med-sub{ fill: #534AB7; }
-    .txt-out    { fill: #712B13; }
-    .txt-out-sub{ fill: #993C1D; }
-    .txt-head-c { fill: #2C2C2A; }
-    .arrow-line { stroke: #5F5E5A; stroke-width: 1.5; fill: none; }
+    .txt-src    { fill: #FFFFFF; }
+    .txt-src-sub{ fill: #D6E8FA; }
+    .txt-ing    { fill: #FFFFFF; }
+    .txt-med    { fill: #FFFFFF; }
+    .txt-med-sub{ fill: #E2E0FF; }
+    .txt-out    { fill: #FFFFFF; }
+    .txt-out-sub{ fill: #FFE0D2; }
+    .txt-head-c { fill: #F0EFEC; }
+    .arrow-line { stroke: #C3C2BB; stroke-width: 1.5; fill: none; }
   </style>
 
   <!-- ===================== SECTION 1: Data generation and ingestion ===================== -->
@@ -82,7 +82,7 @@
   </g>
 
   <!-- ===================== SECTION 2: Databricks streaming and medallion processing ===================== -->
-  <rect class="container-dashed" x="40" y="230" width="600" height="450" rx="16" stroke-width="0.5"/>
+  <rect class="container-dashed" x="40" y="230" width="600" height="330" rx="16" stroke-width="0.5"/>
   <text class="txt-head txt-head-c" x="60" y="255">Databricks streaming and medallion processing</text>
 
   <!-- arrows ingest -> bronze -->
@@ -141,25 +141,25 @@
   </g>
 
   <!-- Gold -> outputs -->
-  <line class="arrow-line" x1="290" y1="605" x2="240" y2="640" marker-end="url(#arrow)"/>
-  <text class="txt-sub" x="230" y="620" text-anchor="end" fill="#5F5E5A">Trigger email sink</text>
+  <line class="arrow-line" x1="290" y1="534" x2="240" y2="600" marker-end="url(#arrow)"/>
+  <text class="txt-sub" x="230" y="565" text-anchor="end" fill="#C3C2BB">Trigger email sink</text>
 
-  <line class="arrow-line" x1="390" y1="605" x2="440" y2="640" marker-end="url(#arrow)"/>
-  <text class="txt-sub" x="450" y="620" text-anchor="start" fill="#5F5E5A">Aggregate metrics</text>
+  <line class="arrow-line" x1="390" y1="534" x2="440" y2="600" marker-end="url(#arrow)"/>
+  <text class="txt-sub" x="450" y="565" text-anchor="start" fill="#C3C2BB">Aggregate metrics</text>
 
   <!-- ===================== SECTION 3: Alerting and analytics ===================== -->
-  <rect class="container-dashed" x="40" y="720" width="600" height="130" rx="16" stroke-width="0.5"/>
-  <text class="txt-head txt-head-c" x="60" y="745">Alerting and analytics</text>
+  <rect class="container-dashed" x="40" y="570" width="600" height="130" rx="16" stroke-width="0.5"/>
+  <text class="txt-head txt-head-c" x="60" y="595">Alerting and analytics</text>
 
   <g>
-    <rect class="box-fill-out" x="140" y="760" width="180" height="56" rx="8" stroke-width="0.5"/>
-    <text class="txt-title txt-out" x="230" y="778" text-anchor="middle" dominant-baseline="central">Email notifier</text>
-    <text class="txt-sub txt-out-sub" x="230" y="796" text-anchor="middle" dominant-baseline="central">Gmail SMTP alerts</text>
+    <rect class="box-fill-out" x="140" y="610" width="180" height="56" rx="8" stroke-width="0.5"/>
+    <text class="txt-title txt-out" x="230" y="628" text-anchor="middle" dominant-baseline="central">Email notifier</text>
+    <text class="txt-sub txt-out-sub" x="230" y="646" text-anchor="middle" dominant-baseline="central">Gmail SMTP alerts</text>
   </g>
 
   <g>
-    <rect class="box-fill-out" x="360" y="760" width="180" height="56" rx="8" stroke-width="0.5"/>
-    <text class="txt-title txt-out" x="450" y="778" text-anchor="middle" dominant-baseline="central">Lakeview dashboard</text>
-    <text class="txt-sub txt-out-sub" x="450" y="796" text-anchor="middle" dominant-baseline="central">Refreshes every minute</text>
+    <rect class="box-fill-out" x="360" y="610" width="180" height="56" rx="8" stroke-width="0.5"/>
+    <text class="txt-title txt-out" x="450" y="628" text-anchor="middle" dominant-baseline="central">Lakeview dashboard</text>
+    <text class="txt-sub txt-out-sub" x="450" y="646" text-anchor="middle" dominant-baseline="central">Refreshes every minute</text>
   </g>
 </svg>

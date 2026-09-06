@@ -934,10 +934,14 @@ button:hover .roll-inner {
 .drawer-architecture-figure {
   margin: 1rem 0 0;
   background: transparent;
+  height: 700px;
+  overflow: hidden;
 }
 
 .drawer-architecture-figure img {
-  width: 100%;
+  width: 112%;
+  max-width: none;
+  margin-left: -6%;
   height: auto;
   max-height: none;
   object-fit: contain;
