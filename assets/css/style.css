@@ -933,25 +933,14 @@ button:hover .roll-inner {
 
 .drawer-architecture-figure {
   margin: 1.5rem 0 2rem;
-  border: 1px solid var(--border-color);
-  background: #111113;
-  padding: 0.65rem;
+  background: transparent;
 }
 
 .drawer-architecture-figure img {
   width: 100%;
   height: auto;
-  max-height: 620px;
+  max-height: none;
   object-fit: contain;
-}
-
-.drawer-architecture-figure figcaption {
-  padding: 0.7rem 0.35rem 0.15rem;
-  color: var(--text-muted);
-  font-size: 0.68rem;
-  letter-spacing: 0.08em;
-  line-height: 1.5;
-  text-transform: uppercase;
 }
 
 .drawer-arch-box {
