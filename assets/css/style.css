@@ -774,6 +774,24 @@ button:hover .roll-inner {
   line-height: 1.65;
 }
 
+.project-repo-link {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  gap: 0.45rem;
+  margin-top: -0.9rem;
+  color: var(--accent-light);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: color var(--dur-s) var(--ease-out), transform var(--dur-s) var(--ease-out);
+}
+
+.project-repo-link:hover {
+  color: #fff;
+  transform: translateX(3px);
+}
+
 /* Project Drawer */
 .project-drawer-overlay {
   position: fixed;
