@@ -17,7 +17,7 @@
     .container-fill    { fill: #444441; stroke: #898781; }
     .container-dashed  { fill: none; stroke: #898781; stroke-dasharray: 5 5; }
     .txt-title  { font-family: -apple-system, "Segoe UI", Arial, sans-serif; font-size: 14px; font-weight: 500; }
-    .txt-sub    { font-family: -apple-system, "Segoe UI", Arial, sans-serif; font-size: 13px; font-weight: 600; }
+    .txt-sub    { font-family: -apple-system, "Segoe UI", Arial, sans-serif; font-size: 12px; font-weight: 500; }
     .txt-head   { font-family: -apple-system, "Segoe UI", Arial, sans-serif; font-size: 14px; font-weight: 500; }
     .txt-src    { fill: #FFFFFF; }
     .txt-src-sub{ fill: #D6E8FA; }
@@ -57,13 +57,13 @@
 
   <!-- arrows source -> ingest -->
   <line class="arrow-line" x1="145" y1="131" x2="145" y2="164" marker-end="url(#arrow)"/>
-  <text class="txt-sub" x="145" y="150" text-anchor="middle" fill="#E7E7E2">Publish txns</text>
+  <text class="txt-sub" x="145" y="150" text-anchor="middle" fill="#A9AAA5">Publish txns</text>
 
   <line class="arrow-line" x1="340" y1="131" x2="340" y2="164" marker-end="url(#arrow)"/>
-  <text class="txt-sub" x="340" y="150" text-anchor="middle" fill="#E7E7E2">JSON feed</text>
+  <text class="txt-sub" x="340" y="150" text-anchor="middle" fill="#A9AAA5">JSON feed</text>
 
   <line class="arrow-line" x1="535" y1="131" x2="535" y2="164" marker-end="url(#arrow)"/>
-  <text class="txt-sub" x="535" y="150" text-anchor="middle" fill="#E7E7E2">Historical data</text>
+  <text class="txt-sub" x="535" y="150" text-anchor="middle" fill="#A9AAA5">Historical data</text>
 
   <!-- Row 2: ingestion mechanisms -->
   <g>
@@ -82,15 +82,15 @@
   </g>
 
   <!-- ===================== SECTION 2: Databricks streaming and medallion processing ===================== -->
-  <rect class="container-dashed" x="40" y="230" width="600" height="330" rx="16" stroke-width="0.5"/>
+  <rect class="container-dashed" x="40" y="230" width="600" height="340" rx="16" stroke-width="0.5"/>
   <text class="txt-head txt-head-c" x="60" y="255">Databricks streaming and medallion processing</text>
 
   <!-- arrows ingest -> bronze -->
   <line class="arrow-line" x1="145" y1="208" x2="145" y2="265" marker-end="url(#arrow)"/>
-  <text class="txt-sub" x="145" y="230" text-anchor="middle" fill="#E7E7E2">Structured streaming</text>
+  <text class="txt-sub" x="145" y="230" text-anchor="middle" fill="#A9AAA5">Structured streaming</text>
 
   <line class="arrow-line" x1="340" y1="208" x2="340" y2="265" marker-end="url(#arrow)"/>
-  <text class="txt-sub" x="340" y="230" text-anchor="middle" fill="#E7E7E2">Cloud files ingestion</text>
+  <text class="txt-sub" x="340" y="230" text-anchor="middle" fill="#A9AAA5">Cloud files ingestion</text>
 
   <!-- Bronze layer -->
   <g>
@@ -107,10 +107,10 @@
 
   <!-- arrows bronze -> silver -->
   <line class="arrow-line" x1="145" y1="321" x2="145" y2="364" marker-end="url(#arrow)"/>
-  <text class="txt-sub" x="145" y="345" text-anchor="middle" fill="#E7E7E2">Cleaning and parsing</text>
+  <text class="txt-sub" x="145" y="345" text-anchor="middle" fill="#A9AAA5">Cleaning and parsing</text>
 
   <line class="arrow-line" x1="340" y1="321" x2="340" y2="364" marker-end="url(#arrow)"/>
-  <text class="txt-sub" x="340" y="345" text-anchor="middle" fill="#E7E7E2">Dedup and schema</text>
+  <text class="txt-sub" x="340" y="345" text-anchor="middle" fill="#A9AAA5">Dedup and schema</text>
 
   <!-- Silver layer -->
   <g>
@@ -130,8 +130,8 @@
   <path class="arrow-line" d="M340 420 V478" marker-end="url(#arrow)"/>
   <path class="arrow-line" d="M535 208 V478" marker-end="url(#arrow)"/>
 
-  <text class="txt-sub" x="245" y="445" text-anchor="middle" fill="#E7E7E2">Real-time join and aggregation</text>
-  <text class="txt-sub" x="480" y="340" text-anchor="middle" fill="#E7E7E2">Real-time join and aggregation</text>
+  <text class="txt-sub" x="245" y="445" text-anchor="middle" fill="#A9AAA5">Real-time join and aggregation</text>
+  <text class="txt-sub" x="480" y="340" text-anchor="middle" fill="#A9AAA5">Real-time join and aggregation</text>
 
   <!-- Gold layer -->
   <g>
@@ -141,25 +141,25 @@
   </g>
 
   <!-- Gold -> outputs -->
-  <line class="arrow-line" x1="290" y1="534" x2="240" y2="600" marker-end="url(#arrow)"/>
-  <text class="txt-sub" x="230" y="565" text-anchor="end" fill="#C3C2BB">Trigger email sink</text>
+  <line class="arrow-line" x1="290" y1="534" x2="240" y2="620" marker-end="url(#arrow)"/>
+  <text class="txt-sub" x="230" y="580" text-anchor="end" fill="#A9AAA5">Trigger email sink</text>
 
-  <line class="arrow-line" x1="390" y1="534" x2="440" y2="600" marker-end="url(#arrow)"/>
-  <text class="txt-sub" x="450" y="565" text-anchor="start" fill="#C3C2BB">Aggregate metrics</text>
+  <line class="arrow-line" x1="390" y1="534" x2="440" y2="620" marker-end="url(#arrow)"/>
+  <text class="txt-sub" x="450" y="580" text-anchor="start" fill="#A9AAA5">Aggregate metrics</text>
 
   <!-- ===================== SECTION 3: Alerting and analytics ===================== -->
-  <rect class="container-dashed" x="40" y="570" width="600" height="130" rx="16" stroke-width="0.5"/>
-  <text class="txt-head txt-head-c" x="60" y="595">Alerting and analytics</text>
+  <rect class="container-dashed" x="40" y="600" width="600" height="130" rx="16" stroke-width="0.5"/>
+  <text class="txt-head txt-head-c" x="60" y="625">Alerting and analytics</text>
 
   <g>
-    <rect class="box-fill-out" x="140" y="610" width="180" height="56" rx="8" stroke-width="0.5"/>
-    <text class="txt-title txt-out" x="230" y="628" text-anchor="middle" dominant-baseline="central">Email notifier</text>
-    <text class="txt-sub txt-out-sub" x="230" y="646" text-anchor="middle" dominant-baseline="central">Gmail SMTP alerts</text>
+    <rect class="box-fill-out" x="140" y="640" width="180" height="56" rx="8" stroke-width="0.5"/>
+    <text class="txt-title txt-out" x="230" y="658" text-anchor="middle" dominant-baseline="central">Email notifier</text>
+    <text class="txt-sub txt-out-sub" x="230" y="676" text-anchor="middle" dominant-baseline="central">Gmail SMTP alerts</text>
   </g>
 
   <g>
-    <rect class="box-fill-out" x="360" y="610" width="180" height="56" rx="8" stroke-width="0.5"/>
-    <text class="txt-title txt-out" x="450" y="628" text-anchor="middle" dominant-baseline="central">Lakeview dashboard</text>
-    <text class="txt-sub txt-out-sub" x="450" y="646" text-anchor="middle" dominant-baseline="central">Refreshes every minute</text>
+    <rect class="box-fill-out" x="360" y="640" width="180" height="56" rx="8" stroke-width="0.5"/>
+    <text class="txt-title txt-out" x="450" y="658" text-anchor="middle" dominant-baseline="central">Lakeview dashboard</text>
+    <text class="txt-sub txt-out-sub" x="450" y="676" text-anchor="middle" dominant-baseline="central">Refreshes every minute</text>
   </g>
 </svg>
