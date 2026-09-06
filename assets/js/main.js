@@ -120,12 +120,15 @@ const drawerOverlay = document.getElementById('project-drawer-overlay');
 const drawerCloseBtn = document.getElementById('drawer-close-btn');
 const drawerElement = document.querySelector('.project-drawer');
 const finguardCard = document.querySelector('[data-testid="project-finguard-card"]');
+let drawerPreviousFocus;
 
 function openDrawer() {
   if (drawerOverlay) {
+    drawerPreviousFocus = document.activeElement;
     drawerOverlay.classList.add('open');
     document.body.classList.add('modal-open');
     if (lenis) lenis.stop();
+    requestAnimationFrame(() => drawerCloseBtn?.focus());
   }
 }
 
@@ -135,6 +138,9 @@ function closeDrawer() {
     if (!resumeModalOverlay || !resumeModalOverlay.classList.contains('open')) {
       document.body.classList.remove('modal-open');
       if (lenis) lenis.start();
+    }
+    if (drawerPreviousFocus && typeof drawerPreviousFocus.focus === 'function') {
+      drawerPreviousFocus.focus();
     }
   }
 }
@@ -203,6 +209,18 @@ if (resumeModalOverlay) {
 }
 
 window.addEventListener('keydown', (e) => {
+  if (e.key === 'Tab' && drawerOverlay?.classList.contains('open')) {
+    const focusable = drawerElement.querySelectorAll('a[href], button:not([disabled])');
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    if (e.shiftKey && document.activeElement === first) {
+      e.preventDefault();
+      last.focus();
+    } else if (!e.shiftKey && document.activeElement === last) {
+      e.preventDefault();
+      first.focus();
+    }
+  }
   if (e.key === 'Escape') {
     closeDrawer();
     closeResumeModal();
