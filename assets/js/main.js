@@ -123,6 +123,11 @@ const drawerElement = document.querySelector('.project-drawer');
 const drawerScroll = document.querySelector('.drawer-scroll');
 const finguardCard = document.querySelector('[data-testid="project-finguard-card"]');
 let drawerPreviousFocus;
+const isIosSafari = /iPad|iPhone|iPod/.test(navigator.userAgent)
+  || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+let drawerTouchY = 0;
+let drawerTargetScroll = 0;
+let drawerScrollFrame;
 
 function openDrawer() {
   if (drawerOverlay) {
@@ -133,6 +138,10 @@ function openDrawer() {
     if (drawerScroll) {
       drawerScroll.scrollTop = 0;
       drawerScroll.style.webkitOverflowScrolling = 'touch';
+      if (isIosSafari) {
+        drawerScroll.style.touchAction = 'none';
+        drawerTargetScroll = 0;
+      }
     }
     requestAnimationFrame(() => drawerCloseBtn?.focus());
   }
@@ -144,6 +153,35 @@ function closeDrawer() {
     if (!resumeModalOverlay || !resumeModalOverlay.classList.contains('open')) {
       document.body.classList.remove('modal-open');
       if (lenis) lenis.start();
+    }
+
+    if (drawerScroll && isIosSafari) {
+      const easeDrawerScroll = () => {
+        const distance = drawerTargetScroll - drawerScroll.scrollTop;
+        drawerScroll.scrollTop += distance * 0.28;
+        if (Math.abs(distance) > 0.5) {
+          drawerScrollFrame = requestAnimationFrame(easeDrawerScroll);
+        } else {
+          drawerScroll.scrollTop = drawerTargetScroll;
+          drawerScrollFrame = undefined;
+        }
+      };
+
+      drawerScroll.addEventListener('touchstart', (event) => {
+        cancelAnimationFrame(drawerScrollFrame);
+        drawerTouchY = event.touches[0].clientY;
+        drawerTargetScroll = drawerScroll.scrollTop;
+      }, { passive: true });
+
+      drawerScroll.addEventListener('touchmove', (event) => {
+        const currentY = event.touches[0].clientY;
+        drawerTargetScroll -= currentY - drawerTouchY;
+        drawerTargetScroll = Math.max(0, Math.min(drawerTargetScroll, drawerScroll.scrollHeight - drawerScroll.clientHeight));
+        drawerTouchY = currentY;
+        cancelAnimationFrame(drawerScrollFrame);
+        drawerScrollFrame = requestAnimationFrame(easeDrawerScroll);
+        event.preventDefault();
+      }, { passive: false });
     }
     if (drawerPreviousFocus && typeof drawerPreviousFocus.focus === 'function') {
       drawerPreviousFocus.focus();
