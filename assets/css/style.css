@@ -780,10 +780,15 @@ button:hover .roll-inner {
   align-self: flex-start;
   gap: 0.45rem;
   margin-top: -0.9rem;
+  padding: 0;
+  border: 0;
+  background: transparent;
   color: var(--accent-light);
   font-size: 0.7rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
+  font-family: inherit;
+  cursor: pointer;
   transition: color var(--dur-s) var(--ease-out), transform var(--dur-s) var(--ease-out);
 }
 
@@ -953,6 +958,10 @@ button:hover .roll-inner {
   letter-spacing: 0.1em;
   text-transform: uppercase;
   margin-bottom: 1rem;
+}
+
+.drawer-project-content[hidden] {
+  display: none;
 }
 
 .drawer-tag {
