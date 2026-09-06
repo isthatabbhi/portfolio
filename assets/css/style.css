@@ -911,11 +911,12 @@ button:hover .roll-inner {
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
-  border: 1px solid var(--border-color);
-  padding: 0.65rem 0.85rem;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 2rem;
+  padding: 0.55rem 0.95rem;
   color: var(--text-secondary);
   font-size: 0.7rem;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   transition: border-color var(--dur-s) var(--ease-out), color var(--dur-s) var(--ease-out), background var(--dur-s) var(--ease-out);
 }
@@ -934,33 +935,6 @@ button:hover .roll-inner {
   letter-spacing: 0.1em;
   text-transform: uppercase;
   margin-bottom: 1rem;
-}
-
-.drawer-outcome {
-  display: grid;
-  gap: 0.7rem;
-  margin: 1.5rem 0 0.75rem;
-}
-
-.drawer-outcome div {
-  display: grid;
-  grid-template-columns: 4.5rem 1fr;
-  gap: 0.75rem;
-  align-items: baseline;
-}
-
-.drawer-outcome span {
-  color: var(--accent-light);
-  font-family: var(--font-mono);
-  font-size: 0.68rem;
-  text-transform: uppercase;
-}
-
-.drawer-outcome strong {
-  color: var(--text-secondary);
-  font-size: 0.82rem;
-  font-weight: 400;
-  line-height: 1.5;
 }
 
 .drawer-tag {
@@ -1717,9 +1691,6 @@ button:hover .roll-inner {
   }
   .drawer-scroll-cue {
     display: block;
-  }
-  .drawer-outcome div {
-    grid-template-columns: 4rem 1fr;
   }
 }
 
