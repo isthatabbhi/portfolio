@@ -853,7 +853,11 @@ button:hover .roll-inner {
   -webkit-overflow-scrolling: touch;
   overscroll-behavior: contain;
   touch-action: pan-y;
-  overflow-y: scroll;
+  scroll-behavior: smooth;
+  padding: 0;
+}
+
+.drawer-scroll-inner {
   padding: 0 clamp(1.5rem, 4vw, 3rem) 4rem;
 }
 

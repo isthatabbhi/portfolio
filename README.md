@@ -1,17 +1,26 @@
-﻿# Abhishek Kumar - Cloud & Data Engineering Portfolio
+# Abhishek Kumar - Cloud & Data Engineering Portfolio
 
 <div align="center">
 
 [![Live Portfolio](https://img.shields.io/badge/Live_Site-https%3A%2F%2Fisthatabbhi.tech-ff5c35?style=for-the-badge&logo=googlechrome&logoColor=white)](https://isthatabbhi.tech)
+[![Documentation Report](https://img.shields.io/badge/Project_Report-Documentation_PDF-E03C31?style=for-the-badge&logo=adobeacrobatreader&logoColor=white)](documentation.pdf)
 [![Azure App Service](https://img.shields.io/badge/Microsoft_Azure-App_Service-0078D4?style=for-the-badge&logo=microsoftazure&logoColor=white)](https://isthatabbhi-argdfdguaaehbhax.centralindia-01.azurewebsites.net)
 [![Cloudflare Edge](https://img.shields.io/badge/Cloudflare-Edge_Worker-F38020?style=for-the-badge&logo=cloudflare&logoColor=white)](https://isthatabbhi.tech)
 [![GitHub Repository](https://img.shields.io/badge/GitHub-isthatabbhi%2Fportfolio-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/isthatabbhi/portfolio)
 
 **An ultra-responsive, dark editorial engineering portfolio built for cloud, data, and distributed systems engineering.**
 
-[Explore Live Portfolio](https://isthatabbhi.tech) | [FinGuard Deep Dive](https://github.com/isthatabbhi/FinGuard-Real-Time-Fraud-Detection) | [LinkedIn](https://linkedin.com/in/isthatabbhi) | [Contact](mailto:corp.abhishekk@gmail.com)
+[Explore Live Portfolio](https://isthatabbhi.tech) | [Project Documentation (PDF)](documentation.pdf) | [FinGuard Deep Dive](https://github.com/isthatabbhi/FinGuard-Real-Time-Fraud-Detection) | [LinkedIn](https://linkedin.com/in/isthatabbhi) | [Contact](mailto:corp.abhishekk@gmail.com)
 
 </div>
+
+---
+
+## Project Documentation Report
+
+A complete, formal 10-page engineering report detailing the architecture, cloud infrastructure, performance benchmarks, and design system is available in this repository:
+
+👉 **[Download / View Project Documentation Report (PDF)](documentation.pdf)**
 
 ---
 
@@ -26,7 +35,8 @@
 ---
 
 ## Table of Contents
-1. [Design Philosophy and Approach](#design-philosophy-and-approach)
+1. [Project Documentation Report](#project-documentation-report)
+2. [Design Philosophy and Approach](#design-philosophy-and-approach)
 2. [Key Features and Functionalities](#key-features-and-functionalities)
 3. [Technologies, Tools and Platforms](#technologies-tools-and-platforms)
 4. [Architecture and Implementation Details](#architecture-and-implementation-details)
