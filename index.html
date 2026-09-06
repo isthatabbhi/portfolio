@@ -53,7 +53,6 @@
             <i class="fas fa-times"></i>
           </button>
         </div>
-      </div>
       <div class="resume-modal-body" data-lenis-prevent="true">
         <iframe class="resume-iframe" src="Resume_ABHISHEK_KUMAR.pdf#toolbar=1" title="Abhishek Kumar Resume PDF Preview"></iframe>
       </div>
@@ -70,6 +69,7 @@
       </div>
 
       <div class="drawer-scroll" data-lenis-prevent="true">
+      <div class="drawer-project-content is-active" data-project-content="finguard">
       <div class="drawer-kicker">/ Project Architecture</div>
       <h2 class="drawer-title">FinGuard</h2>
 
@@ -112,6 +112,38 @@
         <p>
           Azure Databricks &bull; PySpark Structured Streaming &bull; Confluent Kafka &bull; Delta Lake &bull; Python &bull; SQL &bull; Azure Storage ADLS Gen2
         </p>
+      </div>
+      <div class="drawer-project-content" data-project-content="cloud-atlas">
+        <div class="drawer-kicker">/ Project Architecture</div>
+        <h2 class="drawer-title">Cloud Atlas</h2>
+        <div class="drawer-tags">
+          <span class="drawer-tag">AWS ECS Fargate</span>
+          <span class="drawer-tag">Application Load Balancer</span>
+          <span class="drawer-tag">RDS MySQL</span>
+          <span class="drawer-tag">Docker</span>
+          <span class="drawer-tag">Blue/Green CI/CD</span>
+        </div>
+        <div class="drawer-actions">
+          <a class="drawer-action drawer-action-primary" href="https://github.com/isthatabbhi/Cloud-Atlas" target="_blank" rel="noreferrer"><i class="fab fa-github"></i> View on GitHub</a>
+        </div>
+        <div class="drawer-scroll-cue" aria-hidden="true"><i class="fas fa-arrow-down"></i> Scroll for details</div>
+        <div class="drawer-body">
+          <div class="drawer-section-title"><i class="fas fa-layer-group"></i> Architecture Overview</div>
+          <p>Cloud Atlas modernizes a Node.js monolith into independently deployable customer and employee microservices on AWS, with secure routing and zero-downtime releases.</p>
+          <div class="drawer-arch-box">
+            <strong>Ingress</strong> Application Load Balancer routes public traffic and protected <code>/admin/*</code> requests.<br /><br />
+            <strong>Compute</strong> AWS ECS Fargate runs isolated Customer and Employee services without EC2 management.<br /><br />
+            <strong>Delivery</strong> CodePipeline and CodeDeploy shift blue/green task sets through independent target groups.<br /><br />
+            <strong>Data</strong> Amazon RDS MySQL provides the shared coffee supplier data store.
+          </div>
+          <div class="drawer-section-title"><i class="fas fa-tachometer-alt"></i> Key Engineering Highlights</div>
+          <p>&bull; <strong>Service Isolation:</strong> Read-heavy customer traffic is separated from employee CRUD operations.<br />
+          &bull; <strong>Zero-Downtime Releases:</strong> Green task sets are tested before production traffic shifts.<br />
+          &bull; <strong>Defense in Depth:</strong> ALB source-IP rules protect administrative routes.<br />
+          &bull; <strong>Independent Scaling:</strong> Customer capacity can scale without changing the employee service.</p>
+          <div class="drawer-section-title"><i class="fas fa-tools"></i> Tech Stack &amp; Tools</div>
+          <p>AWS ECS &bull; Fargate &bull; Application Load Balancer &bull; ECR &bull; RDS MySQL &bull; Docker &bull; Node.js &bull; CodePipeline &bull; CodeDeploy</p>
+        </div>
       </div>
       </div>
     </aside>
@@ -296,7 +328,7 @@
             <p class="project-summary" data-testid="project-02-summary">
               Modernizes a Node.js monolith into independently deployable customer and employee microservices on AWS. Uses ECS Fargate, an Application Load Balancer, RDS MySQL, and blue/green CI/CD through CodePipeline and CodeDeploy.
             </p>
-            <a class="project-repo-link" href="https://github.com/isthatabbhi/Cloud-Atlas" target="_blank" rel="noreferrer" data-testid="project-02-repo-link"><i class="fab fa-github"></i> View Cloud Atlas on GitHub</a>
+            <a class="project-repo-link" href="#project-drawer" data-project="cloud-atlas" data-testid="project-02-repo-link"><i class="fas fa-arrow-right"></i> More info</a>
           </div>
         </article>
 

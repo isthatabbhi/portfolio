@@ -122,6 +122,9 @@ const drawerCloseBtn = document.getElementById('drawer-close-btn');
 const drawerElement = document.querySelector('.project-drawer');
 const drawerScroll = document.querySelector('.drawer-scroll');
 const finguardCard = document.querySelector('[data-testid="project-finguard-card"]');
+const cloudAtlasCard = document.querySelector('[data-testid="project-cloud-atlas-card"]');
+const cloudAtlasLink = document.querySelector('[data-testid="project-02-repo-link"]');
+const drawerProjectContents = document.querySelectorAll('[data-project-content]');
 let drawerPreviousFocus;
 let drawerTouchY = 0;
 let drawerTargetScroll = 0;
@@ -139,9 +142,12 @@ function easeDrawerScroll() {
   }
 }
 
-function openDrawer() {
+function openDrawer(project = 'finguard') {
   if (drawerOverlay) {
     drawerPreviousFocus = document.activeElement;
+    drawerProjectContents.forEach((content) => {
+      content.classList.toggle('is-active', content.dataset.projectContent === project);
+    });
     drawerOverlay.classList.add('open');
     document.body.classList.add('modal-open');
     if (lenis) lenis.stop();
@@ -170,7 +176,23 @@ function closeDrawer() {
 }
 
 if (finguardCard) {
-  finguardCard.addEventListener('click', openDrawer);
+  finguardCard.addEventListener('click', (event) => {
+    if (!event.target.closest('a')) openDrawer('finguard');
+  });
+}
+
+if (cloudAtlasCard) {
+  cloudAtlasCard.addEventListener('click', (event) => {
+    if (!event.target.closest('a')) openDrawer('cloud-atlas');
+  });
+}
+
+if (cloudAtlasLink) {
+  cloudAtlasLink.addEventListener('click', (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+    openDrawer('cloud-atlas');
+  });
 }
 
 if (drawerCloseBtn) {
