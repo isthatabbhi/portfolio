@@ -118,16 +118,16 @@
       </div>
 
       <div class="drawer-project-content" data-project-content="cloud-atlas" hidden>
-        <div class="drawer-kicker">/ Project Deep Dive</div>
+        <div class="drawer-kicker">/ Cloud Modernization &amp; CI/CD</div>
         <h2 class="drawer-title">Cloud Atlas</h2>
 
         <div class="drawer-tags">
           <span class="drawer-tag">AWS ECS Fargate</span>
           <span class="drawer-tag">Application Load Balancer</span>
-          <span class="drawer-tag">RDS MySQL</span>
-          <span class="drawer-tag">Docker</span>
-          <span class="drawer-tag">CodePipeline</span>
-          <span class="drawer-tag">CodeDeploy</span>
+          <span class="drawer-tag">CodePipeline &amp; CodeDeploy</span>
+          <span class="drawer-tag">Blue/Green Deployments</span>
+          <span class="drawer-tag">Amazon RDS MySQL</span>
+          <span class="drawer-tag">Docker Containerization</span>
         </div>
         <div class="drawer-actions">
           <a class="drawer-action drawer-action-primary" href="https://github.com/isthatabbhi/Cloud-Atlas" target="_blank" rel="noreferrer"><i class="fab fa-github"></i> View on GitHub</a>
@@ -137,8 +137,15 @@
         <div class="drawer-body">
           <div class="drawer-section-title"><i class="fas fa-cloud"></i> Architecture Overview</div>
           <p>
-            Cloud Atlas modernizes a single-instance Node.js coffee supplier application into independently deployable customer and employee microservices on AWS. The split isolates high-volume catalog traffic from administrative operations while removing the monolith's single point of failure.
+            Cloud Atlas modernizes a single-instance monolithic Node.js coffee supplier application into independently deployable customer and employee microservices on Amazon Web Services. The architecture decouples high-volume catalog browsing from administrative operations, eliminating single points of failure, resource contention, and deployment downtime.
           </p>
+
+          <div class="drawer-arch-box">
+            <strong>CI/CD Pipeline Overview:</strong><br />
+            &bull; <strong>Build &amp; Push:</strong> Docker container images for Customer and Employee services are built and pushed to Amazon ECR repositories.<br /><br />
+            &bull; <strong>CodePipeline:</strong> Triggered automatically on image updates to fetch ECS task definitions and CodeDeploy AppSpec configurations.<br /><br />
+            &bull; <strong>CodeDeploy Blue/Green:</strong> Deploys green task sets on AWS Fargate, validates health checks across alternate target groups, and shifts production ALB traffic with zero downtime.
+          </div>
 
           <div class="drawer-section-title"><i class="fas fa-rocket"></i> Key Engineering Highlights</div>
           <p>
@@ -229,7 +236,7 @@
         <img class="hero-portrait" src="images/portrait.png" alt="Abhishek Kumar" data-testid="hero-portrait-image" />
         <div class="hero-portrait-note" data-testid="hero-portrait-note">
           <span>01 / 01</span>
-          <span>Based in Bengaluru</span>
+          <span>Based in Bengaluru 🇮🇳</span>
         </div>
       </div>
 
@@ -314,7 +321,7 @@
               </div>
             </div>
             <p class="project-summary" data-testid="project-01-summary">
-              A streaming credit card fraud detection system designed around speed, quality, and observability on Databricks, PySpark, Confluent Kafka, and Delta Lake medallion architecture. <em style="color: var(--accent-light); font-style: normal; font-size: 0.85rem; display: block; margin-top: 0.5rem;">More info</em>
+              A streaming credit card fraud detection system designed around speed, quality, and observability on Databricks, PySpark, Confluent Kafka, and Delta Lake medallion architecture. <em style="color: var(--accent-light); font-style: normal; font-size: 0.85rem; display: block; margin-top: 0.5rem;">MORE INFO</em>
             </p>
           </div>
         </article>
@@ -329,16 +336,16 @@
             <div class="project-header">
               <div>
                 <h3 data-testid="project-02-name">Cloud Atlas</h3>
-                <p class="project-kind" data-testid="project-02-kind">Infrastructure &amp; automation</p>
+                <p class="project-kind" data-testid="project-02-kind">Cloud-native microservices &amp; CI/CD</p>
               </div>
               <div class="project-detail">
-                <span data-testid="project-02-year">Selected practice</span>
+                <span data-testid="project-02-year">2026</span>
               </div>
             </div>
             <p class="project-summary" data-testid="project-02-summary">
-              Modernizes a Node.js monolith into independently deployable customer and employee microservices on AWS. Uses ECS Fargate, an Application Load Balancer, RDS MySQL, and blue/green CI/CD through CodePipeline and CodeDeploy.
+              Decomposes a monolithic Node.js web application into decoupled, containerized customer and employee microservices on AWS ECS Fargate, featuring Application Load Balancer path routing, RDS MySQL, and zero-downtime blue/green CI/CD.
             </p>
-            <button class="project-repo-link" type="button" data-testid="project-02-repo-link">More info</button>
+            <button class="project-repo-link" type="button" data-testid="project-02-repo-link">MORE INFO</button>
           </div>
         </article>
 
@@ -611,7 +618,7 @@
   <!-- FOOTER -->
   <footer class="site-footer section-frame" data-testid="site-footer">
     <div class="footer-top">
-      <span data-testid="footer-location">Bengaluru</span>
+      <span data-testid="footer-location">Bengaluru 🇮🇳</span>
       <span data-testid="footer-status">Open to opportunities</span>
     </div>
     <div class="footer-bottom">
