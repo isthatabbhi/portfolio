@@ -130,7 +130,10 @@ function openDrawer() {
     drawerOverlay.classList.add('open');
     document.body.classList.add('modal-open');
     if (lenis) lenis.stop();
-    if (drawerScroll) drawerScroll.scrollTop = 0;
+    if (drawerScroll) {
+      drawerScroll.scrollTop = 0;
+      drawerScroll.style.webkitOverflowScrolling = 'touch';
+    }
     requestAnimationFrame(() => drawerCloseBtn?.focus());
   }
 }
