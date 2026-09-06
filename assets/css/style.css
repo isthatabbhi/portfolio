@@ -935,7 +935,8 @@ button:hover .roll-inner {
 .drawer-architecture-figure {
   margin: 1rem 0 0;
   background: transparent;
-  overflow: visible;
+  aspect-ratio: 680 / 820;
+  overflow: hidden;
 }
 
 .drawer-architecture-figure img {
