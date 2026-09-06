@@ -43,6 +43,22 @@ body.modal-open {
   --ease-soft: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+@keyframes enter {
+  0% {
+    opacity: var(--tw-enter-opacity, 1);
+    transform: translate3d(var(--tw-enter-translate-x, 0), var(--tw-enter-translate-y, 0), 0) scale3d(var(--tw-enter-scale, 1), var(--tw-enter-scale, 1), var(--tw-enter-scale, 1)) rotate(var(--tw-enter-rotate, 0));
+    filter: blur(var(--tw-enter-blur, 0));
+  }
+}
+
+@keyframes exit {
+  100% {
+    opacity: var(--tw-exit-opacity, 1);
+    transform: translate3d(var(--tw-exit-translate-x, 0), var(--tw-exit-translate-y, 0), 0) scale3d(var(--tw-exit-scale, 1), var(--tw-exit-scale, 1), var(--tw-exit-scale, 1)) rotate(var(--tw-exit-rotate, 0));
+    filter: blur(var(--tw-exit-blur, 0));
+  }
+}
+
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -338,27 +354,31 @@ button:hover .roll-inner {
 
 .reveal-elem {
   opacity: 0;
-  transform: translateY(100%);
-  transition: transform var(--dur-l) var(--ease-in-out), opacity var(--dur-l) var(--ease-out);
-  will-change: transform, opacity;
+  transform: translateY(22px);
+  filter: blur(8px);
+  transition: transform var(--dur-l) var(--ease-in-out), opacity var(--dur-l) var(--ease-out), filter var(--dur-l) var(--ease-out);
+  will-change: transform, opacity, filter;
 }
 
 .reveal-fade {
   opacity: 0;
-  transform: translateY(30px);
-  transition: transform var(--dur-m) var(--ease-out), opacity var(--dur-m) var(--ease-out);
-  will-change: transform, opacity;
+  transform: translateY(26px);
+  filter: blur(6px);
+  transition: transform var(--dur-m) var(--ease-out), opacity var(--dur-m) var(--ease-out), filter var(--dur-m) var(--ease-out);
+  will-change: transform, opacity, filter;
 }
 
 .is-revealed .reveal-elem {
   opacity: 1;
   transform: translateY(0);
+  filter: blur(0);
 }
 
 .is-revealed.reveal-fade,
 .is-revealed .reveal-fade {
   opacity: 1;
   transform: translateY(0);
+  filter: blur(0);
 }
 
 .delay-1 { transition-delay: 0.12s; }
@@ -446,14 +466,14 @@ button:hover .roll-inner {
   height: 100%;
   object-fit: cover;
   object-position: center 15%;
-  filter: grayscale(1) contrast(1.1);
+  filter: grayscale(1) contrast(1.12);
   transition: filter var(--dur-l) var(--ease-in-out), transform var(--dur-l) var(--ease-in-out);
-  will-change: transform;
+  will-change: transform, filter;
 }
 
 .hero-portrait-wrap:hover .hero-portrait {
-  filter: grayscale(0.15) contrast(1.05);
-  transform: scale(1.04);
+  filter: grayscale(0.7) contrast(1.16);
+  transform: scale(1.02);
 }
 
 .hero-portrait-note {
@@ -664,11 +684,12 @@ button:hover .roll-inner {
   color: #fff;
   align-items: start;
   cursor: pointer;
-  transition: background var(--dur-s) var(--ease-out);
+  transition: background var(--dur-s) var(--ease-out), transform var(--dur-m) var(--ease-soft), border-color var(--dur-s) var(--ease-out);
 }
 
 .project-card:hover {
   background: rgba(255, 255, 255, 0.015);
+  transform: translateY(-4px);
 }
 
 .project-image-wrap {
