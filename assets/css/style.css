@@ -1681,16 +1681,17 @@ button:hover .roll-inner {
   .project-drawer {
     height: 100dvh;
     max-height: 100dvh;
-    display: block;
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
-    touch-action: pan-y;
+    display: flex;
+    overflow: hidden;
   }
   .drawer-scroll {
-    display: block;
-    height: auto;
-    max-height: none;
-    overflow: visible;
+    flex: 1 1 auto;
+    min-height: 0;
+    height: calc(100dvh - 4.5rem);
+    max-height: calc(100dvh - 4.5rem);
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+    touch-action: none;
     padding-bottom: 4rem;
   }
   .drawer-scroll-cue {

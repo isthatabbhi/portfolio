@@ -11,6 +11,7 @@ if (typeof Lenis !== 'undefined') {
     wheelMultiplier: 1,
     touchMultiplier: 2,
     infinite: false,
+    prevent: (node) => Boolean(node.closest && node.closest('.project-drawer')),
   });
 
   function raf(time) {
@@ -165,9 +166,20 @@ if (drawerOverlay) {
   drawerOverlay.addEventListener('touchmove', (e) => {
     e.stopPropagation();
   }, { passive: true });
-  drawerElement.addEventListener('touchmove', (e) => {
-    e.stopPropagation();
+}
+
+if (drawerScroll) {
+  let drawerTouchStartY = 0;
+  let drawerTouchStartScrollTop = 0;
+  drawerScroll.addEventListener('touchstart', (e) => {
+    drawerTouchStartY = e.touches[0].clientY;
+    drawerTouchStartScrollTop = drawerScroll.scrollTop;
   }, { passive: true });
+  drawerScroll.addEventListener('touchmove', (e) => {
+    const delta = drawerTouchStartY - e.touches[0].clientY;
+    drawerScroll.scrollTop = drawerTouchStartScrollTop + delta;
+    e.preventDefault();
+  }, { passive: false });
 }
 
 // 5. Interactive Resume Preview Modal
