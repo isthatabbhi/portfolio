@@ -154,6 +154,9 @@ if (drawerOverlay) {
   drawerOverlay.addEventListener('wheel', (e) => {
     e.stopPropagation();
   }, { passive: true });
+  drawerOverlay.addEventListener('touchmove', (e) => {
+    e.stopPropagation();
+  }, { passive: true });
 }
 
 // 5. Interactive Resume Preview Modal
