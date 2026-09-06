@@ -87,6 +87,11 @@
           FinGuard is an end-to-end streaming data pipeline engineered to ingest, clean, score, and detect credit card fraud in real-time. Built around a Delta Lake medallion architecture with zero data loss.
         </p>
 
+        <figure class="drawer-architecture-figure">
+          <img src="images/projects/finguard-pipeline-architecture.png" alt="FinGuard streaming pipeline architecture from ingestion through alerting and analytics" />
+          <figcaption>Streaming ingestion, medallion processing, alerting, and analytics flow.</figcaption>
+        </figure>
+
         <div class="drawer-arch-box">
           <strong>1. Bronze Layer: Raw Ingestion</strong><br />
           Kafka streaming topics &rarr; PySpark Structured Streaming &rarr; Append-only Delta Tables.<br /><br />
