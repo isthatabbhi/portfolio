@@ -1309,6 +1309,13 @@ button:hover .roll-inner {
   object-fit: contain;
 }
 
+.cert-card-editorial .cert-logo[src*="databricks"] {
+  max-width: 62px;
+  max-height: 44px;
+  transform: scale(1.2);
+  transform-origin: left center;
+}
+
 .cert-issuer {
   font-size: 0.92rem;
   font-weight: 600;
