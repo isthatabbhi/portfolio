@@ -1310,10 +1310,8 @@ button:hover .roll-inner {
 }
 
 .cert-card-editorial .cert-logo[src*="databricks"] {
-  max-width: 62px;
-  max-height: 44px;
-  transform: scale(1.2);
-  transform-origin: left center;
+  max-width: 37px;
+  max-height: 30px;
 }
 
 .cert-issuer {
