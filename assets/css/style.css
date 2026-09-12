@@ -1314,6 +1314,11 @@ button:hover .roll-inner {
   max-height: 30px;
 }
 
+.cert-card-editorial .cert-logo[src*="anthropic"] {
+  max-width: 38px;
+  max-height: 26px;
+}
+
 .cert-issuer {
   font-size: 0.92rem;
   font-weight: 600;
