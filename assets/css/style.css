@@ -463,18 +463,33 @@ button:hover .roll-inner {
 }
 
 .hero-portrait {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center 15%;
-  filter: grayscale(1) contrast(1.12);
-  transition: filter 700ms ease, transform 700ms ease;
-  will-change: transform, filter;
+  transition: opacity 700ms ease, transform 700ms ease;
+  will-change: transform, opacity;
+}
+
+.hero-portrait-bw {
+  opacity: 1;
+  z-index: 1;
+}
+
+.hero-portrait-color {
+  opacity: 0;
+  z-index: 2;
+  filter: grayscale(0.55) contrast(1.08) saturate(0.85);
 }
 
 .hero-portrait-wrap:hover .hero-portrait {
-  filter: grayscale(0.55) contrast(1.08) saturate(0.85);
   transform: scale(1.025);
+}
+
+.hero-portrait-wrap:hover .hero-portrait-color {
+  opacity: 1;
 }
 
 .hero-portrait-note {
@@ -482,6 +497,7 @@ button:hover .roll-inner {
   right: 1.25rem;
   bottom: 1.25rem;
   left: 1.25rem;
+  z-index: 3;
   display: flex;
   justify-content: space-between;
   color: rgba(255, 255, 255, 0.85);
