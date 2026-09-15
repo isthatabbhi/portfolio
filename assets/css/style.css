@@ -469,7 +469,7 @@ button:hover .roll-inner {
   height: 100%;
   object-fit: cover;
   object-position: center 15%;
-  transition: opacity 1000ms ease, transform 1600ms cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 3.5s cubic-bezier(0.2, 0.6, 0.25, 1), opacity 1.8s ease;
   will-change: transform, opacity;
 }
 
@@ -485,7 +485,7 @@ button:hover .roll-inner {
 }
 
 .hero-portrait-wrap:hover .hero-portrait {
-  transform: scale(1.02);
+  transform: scale(1.03);
 }
 
 .hero-portrait-wrap:hover .hero-portrait-color {
