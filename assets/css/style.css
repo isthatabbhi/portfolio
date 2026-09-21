@@ -926,6 +926,47 @@ button:hover .roll-inner {
   line-height: 1.65;
 }
 
+.project-card-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-top: -0.5rem;
+  flex-wrap: wrap;
+}
+
+.project-card-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.45rem 1rem;
+  border-radius: 9999px;
+  font-size: 0.76rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  text-decoration: none;
+  transition: all var(--dur-s) var(--ease-out);
+}
+
+.project-card-btn:hover {
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.12);
+  transform: translateY(-1px);
+}
+
+.project-card-btn-demo {
+  color: #ffffff;
+  background: rgba(255, 92, 53, 0.16);
+  border-color: rgba(255, 92, 53, 0.45);
+}
+
+.project-card-btn-demo:hover {
+  background: rgba(255, 92, 53, 0.3);
+  border-color: rgba(255, 92, 53, 0.7);
+}
+
 .project-repo-link {
   display: inline-flex;
   align-items: center;
