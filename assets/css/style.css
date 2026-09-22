@@ -166,17 +166,17 @@ button:hover .roll-inner {
   width: 100%;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  background: rgba(10, 10, 10, 0.75);
+  border-bottom: 1px solid transparent;
+  background: transparent;
   padding: 1.15rem clamp(1.25rem, 5vw, 6.25rem);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-  transition: background var(--dur-s) var(--ease-out), border-color var(--dur-s) var(--ease-out);
+  transition: background var(--dur-s) var(--ease-out), border-color var(--dur-s) var(--ease-out), backdrop-filter var(--dur-s) var(--ease-out), -webkit-backdrop-filter var(--dur-s) var(--ease-out);
 }
 
 .site-nav.scrolled {
-  background: rgba(10, 10, 10, 0.9);
-  border-bottom-color: rgba(255, 255, 255, 0.14);
+  background: rgba(10, 10, 10, 0.75);
+  border-bottom-color: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
 }
 
 .site-logo {
