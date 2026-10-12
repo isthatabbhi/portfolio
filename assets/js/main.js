@@ -88,12 +88,25 @@ if (backToTopBtn) {
   });
 }
 
-// 3. One-Click Copy Email with Floating Toast Pill
+// 3. One-Click Copy Email & Phone with Floating Toast Pill
+const CONTACT_CONFIG = {
+  email: 'corp.abhishekk@gmail.com',
+  phone: '+91-8340172491'
+};
+
 function copyEmailToClipboard(email) {
   navigator.clipboard.writeText(email).then(() => {
     showToast(`Copied ${email} to clipboard`);
   }).catch(() => {
     showToast(email);
+  });
+}
+
+function copyPhoneToClipboard(phone) {
+  navigator.clipboard.writeText(phone).then(() => {
+    showToast(`Copied ${phone} to clipboard`);
+  }).catch(() => {
+    showToast(phone);
   });
 }
 
@@ -111,13 +124,25 @@ document.querySelectorAll('.copy-email-btn').forEach(btn => {
   btn.addEventListener('click', (e) => {
     e.preventDefault();
     e.stopPropagation();
-    const email = btn.getAttribute('data-email') || 'corp.abhishekk@gmail.com';
+    const email = btn.getAttribute('data-email') || CONTACT_CONFIG.email;
     copyEmailToClipboard(email);
+  });
+});
+
+document.querySelectorAll('.copy-phone-btn').forEach(btn => {
+  btn.addEventListener('click', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    const phone = btn.getAttribute('data-phone') || CONTACT_CONFIG.phone;
+    copyPhoneToClipboard(phone);
   });
 });
 
 // 4. Project Deep-Dive Drawer (FinGuard & Cloud Atlas)
 const drawerOverlay = document.getElementById('project-drawer-overlay');
+if (drawerOverlay) {
+  drawerOverlay.classList.remove('open');
+}
 const drawerCloseBtn = document.getElementById('drawer-close-btn');
 const drawerElement = document.querySelector('.project-drawer');
 const drawerScroll = document.querySelector('.drawer-scroll');

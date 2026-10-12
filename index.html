@@ -8,21 +8,30 @@
   
   <!-- Favicon & Touch Icons -->
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-  <link rel="alternate icon" type="image/png" href="images/portrait.png" />
-  <link rel="apple-touch-icon" href="images/portrait.png" />
+  <link rel="alternate icon" type="image/png" href="https://isthatabbhi.tech/images/portrait.png" />
+  <link rel="apple-touch-icon" href="https://isthatabbhi.tech/images/portrait.png" />
   <meta name="theme-color" content="#0a0a0a" />
 
   <!-- OpenGraph Metadata -->
   <meta property="og:title" content="Abhishek Kumar | Portfolio" />
-  <meta property="og:description" content="More curious than certain. Cloud, data, and distributed engineering portfolio of Abhishek Kumar." />
-  <meta property="og:image" content="images/portrait.png" />
+  <meta property="og:description" content="Data / Cloud Engineer, Bengaluru. Building trust through data." />
+  <meta property="og:image" content="https://isthatabbhi.tech/images/portrait.png" />
   <meta property="og:url" content="https://isthatabbhi.tech" />
   <meta property="og:type" content="website" />
 
+  <!-- Twitter Card Metadata -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Abhishek Kumar | Portfolio" />
+  <meta name="twitter:description" content="Data / Cloud Engineer, Bengaluru. Building trust through data." />
+  <meta name="twitter:image" content="https://isthatabbhi.tech/images/portrait.png" />
+
+  <!-- Google Fonts Preconnect & Stylesheet -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Lora:ital,wght@0,400..700;1,400..700&family=Outfit:wght@300;400;500;600;700&display=swap" />
+
   <link rel="stylesheet" href="assets/css/style.css" />
-  <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+  <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js" defer></script>
 </head>
 <body>
 
@@ -212,15 +221,19 @@
       </div>
 
       <div class="hero-copy">
+        <div class="hero-status-pill reveal-fade" data-testid="hero-status-pill" style="margin-bottom: 1.5rem; display: inline-flex; align-items: center; gap: 0.6rem; padding: 0.4rem 0.95rem; border-radius: 9999px; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.12); font-size: 0.8rem; color: rgba(255, 255, 255, 0.9);">
+          <span style="font-weight: 600; color: #fff;">Abhishek Kumar</span> &bull; <span>Data / Cloud Engineer, Bengaluru</span>
+        </div>
+
         <div class="reveal-mask">
           <h1 class="hero-heading reveal-elem delay-1" data-testid="hero-heading">
-            I design and deploy<br><span>cloud‑native<br>systems</span>
+            Building trust<br><span>through data</span>
           </h1>
         </div>
 
         <div class="hero-lower reveal-fade delay-2">
           <p class="hero-description" data-testid="hero-description">
-            CS student at JAIN University, Bengaluru. I build resilient data systems with a cloud native mindset, from first pipeline to production across AWS and Azure.
+            MCA student at JAIN (Deemed-to-be University), Bengaluru (pursuing, expected 2027). I build resilient data systems with a cloud-native mindset, from first pipeline to production across AWS and Azure.
           </p>
         </div>
       </div>
@@ -234,7 +247,7 @@
           <img class="hero-portrait hero-portrait-bw" src="images/portrait-bw.png" alt="Abhishek Kumar" data-testid="about-portrait-image" />
           <img class="hero-portrait hero-portrait-color" src="images/portrait.png" alt="Abhishek Kumar" aria-hidden="true" />
           <div class="hero-portrait-note" data-testid="about-portrait-note">
-            <span>01 / 01</span>
+            <span>Abhishek Kumar</span>
             <span>Based in Bengaluru</span>
           </div>
         </div>
@@ -246,13 +259,13 @@
             </h2>
           </div>
           <p data-testid="about-description">
-            I'm an MCA student at JAIN University, Bengaluru, specialising in Cloud Technology. My background covers Python, PySpark, SQL, AWS, and Azure Databricks, and I've been putting those to use building end-to-end data systems during my internship and personal projects.
+            MCA in Cloud Technology, JAIN (Deemed-to-be University), pursuing, expected 2027. Specializing in Cloud Technology, my background covers Python, PySpark, SQL, AWS, and Azure Databricks, and I've been putting those to use building end-to-end data systems during my internship and personal projects.
           </p>
           <p data-testid="about-description-secondary">
             I'm currently looking for a software engineering role where I can contribute to production-grade solutions, learn from ambitious teams, and keep building with intention.
           </p>
           <button class="outline-button open-resume-modal-btn" type="button" data-testid="resume-open-link">
-            <i class="fas fa-file-pdf"></i> View résumé
+            <i class="fas fa-file-pdf"></i> View Resume
           </button>
         </div>
       </div>
@@ -296,7 +309,7 @@
         <!-- Project 1: FinGuard -->
         <article class="project-card reveal-fade" data-testid="project-finguard-card" title="Click to view architectural deep-dive">
           <div class="project-image-wrap">
-            <img class="project-image" src="https://images.unsplash.com/photo-1615677679325-4a33c6d6b010?auto=format&fit=crop&w=1400&q=85" alt="FinGuard project visual" data-testid="project-01-image" />
+            <img class="project-image" src="images/projects/finguard-pipeline-architecture.png" alt="FinGuard streaming pipeline architecture" loading="lazy" decoding="async" data-testid="project-01-image" />
             <span class="project-index" style="color: #ff5c35;" data-testid="project-01-index">01</span>
           </div>
           <div class="project-content">
@@ -311,15 +324,15 @@
               </div>
             </div>
             <p class="project-summary" data-testid="project-01-summary">
-              A streaming credit card fraud detection system designed around speed, quality, and observability on Databricks, PySpark, Confluent Kafka, and Delta Lake medallion architecture.
+              A streaming credit card fraud detection pipeline processing sub-second micro-batches on Azure Databricks, PySpark, and Kafka. Enriched master records for 1,000+ customers via PostgreSQL with zero data loss across a Delta Lake medallion architecture.
             </p>
           </div>
         </article>
 
         <!-- Project 2: Cloud Atlas -->
-        <article class="project-card reveal-fade delay-1" data-testid="project-cloud-atlas-card">
+        <article class="project-card reveal-fade delay-1" data-testid="project-cloud-atlas-card" title="Click to view architectural deep-dive">
           <div class="project-image-wrap">
-            <img class="project-image" src="https://images.unsplash.com/photo-1484557052118-f32bd25b45b5?auto=format&fit=crop&w=1400&q=85" alt="Cloud Atlas project visual" data-testid="project-02-image" />
+            <img class="project-image" src="images/projects/cloud-atlas-infrastructure.png" alt="Cloud Atlas microservices infrastructure on AWS" loading="lazy" decoding="async" data-testid="project-02-image" />
             <span class="project-index" style="color: #d0d5d8;" data-testid="project-02-index">02</span>
           </div>
           <div class="project-content">
@@ -334,15 +347,15 @@
               </div>
             </div>
             <p class="project-summary" data-testid="project-02-summary">
-              Decomposes a monolithic Node.js web application into decoupled, containerized customer and employee microservices on AWS ECS Fargate, featuring Application Load Balancer path routing, RDS MySQL, and zero-downtime blue/green CI/CD.
+              Decomposed a monolithic Node.js web application into decoupled ECS Fargate microservices with ALB path routing and RDS MySQL. Features blue/green CI/CD via CodePipeline/CodeDeploy achieving zero-downtime releases and 5-minute automated rollbacks.
             </p>
           </div>
         </article>
 
         <!-- Project 3: Signal -->
-        <article class="project-card reveal-fade delay-2" data-testid="project-signal-noise-card">
+        <article class="project-card project-card-static reveal-fade delay-2">
           <div class="project-image-wrap">
-            <img class="project-image" src="https://images.unsplash.com/photo-1708464556100-06938ff3417e?auto=format&fit=crop&w=1400&q=85" alt="Signal Noise project visual" data-testid="project-03-image" />
+            <img class="project-image" src="images/projects/signal-noise-monitoring.png" alt="Signal monitoring and data products" loading="lazy" decoding="async" data-testid="project-03-image" />
             <span class="project-index" style="color: #ffb22e;" data-testid="project-03-index">03</span>
           </div>
           <div class="project-content">
@@ -350,9 +363,6 @@
               <div>
                 <h3 data-testid="project-03-name">Signal</h3>
                 <p class="project-kind" data-testid="project-03-kind">Monitoring &amp; data products</p>
-              </div>
-              <div class="project-detail">
-                <span data-testid="project-03-year">Selected practice</span>
               </div>
             </div>
             <p class="project-summary" data-testid="project-03-summary">
@@ -381,7 +391,7 @@
         <!-- AWS Academy -->
         <a href="https://www.credly.com/badges/bc45ecdd-f00c-42ab-afd6-fc3fb03881c0/public_url" target="_blank" rel="noopener noreferrer" class="cert-card-editorial">
           <div class="cert-logo-wrap">
-            <img class="cert-logo" src="images/logos/aws.png" alt="AWS Academy logo" />
+            <img class="cert-logo" src="images/logos/aws.png" alt="AWS Academy logo" loading="lazy" decoding="async" />
           </div>
           <div class="cert-issuer">AWS Academy</div>
           <div class="cert-name">Cloud Architect</div>
@@ -391,7 +401,7 @@
         <!-- AWS Cloud Practitioner -->
         <a href="https://drive.google.com/file/d/19BGcFJjen0uocVcTjHFEOxQ__ej6TWKh/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="cert-card-editorial">
           <div class="cert-logo-wrap">
-            <img class="cert-logo" src="images/logos/aws.png" alt="AWS logo" />
+            <img class="cert-logo" src="images/logos/aws.png" alt="AWS logo" loading="lazy" decoding="async" />
           </div>
           <div class="cert-issuer">AWS</div>
           <div class="cert-name">Cloud Practitioner</div>
@@ -401,7 +411,7 @@
         <!-- Databricks -->
         <a href="https://credentials.databricks.com/e3b84c1a-03f7-4a1f-a2e9-527b6b390b30#acc.uUQW2jN4" target="_blank" rel="noopener noreferrer" class="cert-card-editorial">
           <div class="cert-logo-wrap">
-            <img class="cert-logo" src="images/logos/databricks.png" alt="Databricks logo" />
+            <img class="cert-logo" src="images/logos/databricks.png" alt="Databricks logo" loading="lazy" decoding="async" />
           </div>
           <div class="cert-issuer">Databricks</div>
           <div class="cert-name">Generative AI</div>
@@ -411,7 +421,7 @@
         <!-- Anthropic -->
         <a href="https://verify.skilljar.com/c/jitr3dnn64a2" target="_blank" rel="noopener noreferrer" class="cert-card-editorial">
           <div class="cert-logo-wrap">
-            <img class="cert-logo" src="images/logos/anthropic.png" alt="Anthropic logo" />
+            <img class="cert-logo" src="images/logos/anthropic.png" alt="Anthropic logo" loading="lazy" decoding="async" />
           </div>
           <div class="cert-issuer">Anthropic</div>
           <div class="cert-name">MCP</div>
@@ -421,7 +431,7 @@
         <!-- Oracle -->
         <a href="https://catalog-education.oracle.com/pls/certview/sharebadge?id=6563F5209FFED4AD438BD20F8CFDE49D61503067EA6D53A2EEF40ADB5675596E" target="_blank" rel="noopener noreferrer" class="cert-card-editorial">
           <div class="cert-logo-wrap">
-            <img class="cert-logo" src="images/logos/oracle.png" alt="Oracle logo" />
+            <img class="cert-logo" src="images/logos/oracle.png" alt="Oracle logo" loading="lazy" decoding="async" />
           </div>
           <div class="cert-issuer">Oracle</div>
           <div class="cert-name">OCI AI</div>
@@ -431,7 +441,7 @@
         <!-- Meta -->
         <a href="https://www.coursera.org/account/accomplishments/verify/QZCMLD7VSYG8" target="_blank" rel="noopener noreferrer" class="cert-card-editorial">
           <div class="cert-logo-wrap">
-            <img class="cert-logo" src="images/logos/meta.png" alt="Meta logo" />
+            <img class="cert-logo" src="images/logos/meta.png" alt="Meta logo" loading="lazy" decoding="async" />
           </div>
           <div class="cert-issuer">Meta</div>
           <div class="cert-name">MySQL</div>
@@ -441,7 +451,7 @@
         <!-- Google -->
         <a href="https://www.coursera.org/account/accomplishments/verify/QCRNHPGQRGUS" target="_blank" rel="noopener noreferrer" class="cert-card-editorial">
           <div class="cert-logo-wrap">
-            <img class="cert-logo" src="images/logos/google.png" alt="Google logo" />
+            <img class="cert-logo" src="images/logos/google.png" alt="Google logo" loading="lazy" decoding="async" />
           </div>
           <div class="cert-issuer">Google</div>
           <div class="cert-name">Python</div>
@@ -451,7 +461,7 @@
         <!-- Accenture -->
         <a href="https://www.futurelearn.com/certificates/lgjwavb" target="_blank" rel="noopener noreferrer" class="cert-card-editorial">
           <div class="cert-logo-wrap">
-            <img class="cert-logo" src="images/logos/accenture.png" alt="Accenture logo" />
+            <img class="cert-logo" src="images/logos/accenture.png" alt="Accenture logo" loading="lazy" decoding="async" />
           </div>
           <div class="cert-issuer">Accenture</div>
           <div class="cert-name">Artificial Intelligence</div>
@@ -461,7 +471,7 @@
         <!-- Deloitte -->
         <a href="https://drive.google.com/file/d/1Z9uEaSCXO_lvbEzC7vSk6GCxlCKXcLVT/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="cert-card-editorial">
           <div class="cert-logo-wrap">
-            <img class="cert-logo" src="images/logos/deloitte.png" alt="Deloitte logo" />
+            <img class="cert-logo" src="images/logos/deloitte.png" alt="Deloitte logo" loading="lazy" decoding="async" />
           </div>
           <div class="cert-issuer">Deloitte</div>
           <div class="cert-name">Real-world Readiness</div>
@@ -508,7 +518,7 @@
             </p>
           </div>
           <p class="timeline-detail" data-testid="timeline-2-detail">
-            Specializing in storage and cloud technology. SGPA 8.3/10, with AWS Academy Cloud Architecting training completed.
+            Specializing in Cloud Technology (pursuing, expected 2027). SGPA 8.3/10, with AWS Academy Cloud Architecting training completed.
           </p>
           <span class="timeline-date" data-testid="timeline-2-date">AUG 2025 — PRESENT</span>
         </div>
@@ -549,6 +559,14 @@
               <svg class="contact-email-arrow" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
             </a>
             <button class="copy-email-btn" data-email="corp.abhishekk@gmail.com" title="Copy email address to clipboard">
+              <i class="far fa-copy"></i> Copy
+            </button>
+
+            <a class="contact-phone" href="tel:+918340172491" data-testid="contact-phone-link">
+              <span class="roll-wrap"><span class="roll-inner"><span>+91-8340172491</span><span>+91-8340172491</span></span></span>
+              <svg class="contact-email-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+            </a>
+            <button class="copy-phone-btn" data-phone="+91-8340172491" title="Copy phone number to clipboard">
               <i class="far fa-copy"></i> Copy
             </button>
           </div>
