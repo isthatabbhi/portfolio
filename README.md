@@ -141,23 +141,23 @@ function closeResumeModal() {
 ```text
 ├── assets/
 │   ├── css/
-│   │   ├── style.css             # Main stylesheet with design tokens and responsive layout
-│   │   └── fontawesome-all.min.css # FontAwesome icons
+│   │   ├── style.css
+│   │   └── fontawesome-all.min.css
 │   ├── js/
-│   │   └── main.js               # Lenis scroll engine, modal controllers, animations
-│   └── webfonts/                 # Vector icon webfonts
+│   │   └── main.js
+│   └── webfonts/
 ├── images/
-│   ├── portrait.png              # High-contrast monochromatic hero portrait
-│   ├── screenshots/              # High-resolution portfolio walkthrough screenshots
+│   ├── portrait.png
+│   ├── screenshots/
 │   │   ├── 01-hero-editorial.png
 │   │   ├── 02-about-and-signals.png
 │   │   ├── 03-selected-work.png
 │   │   └── 04-certifications-timeline.png
-│   └── logos/                    # Verified company logos (Google, AWS, Meta, etc.)
-├── Resume_ABHISHEK_KUMAR.pdf     # Official verified resume document
-├── index.html                    # Single-page semantic portfolio document
-├── web.config                    # Microsoft IIS web server configuration
-└── README.md                     # Project documentation and technical guide
+│   └── logos/
+├── Resume_ABHISHEK_KUMAR.pdf
+├── index.html
+├── web.config
+└── README.md
 ```
 
 ---
