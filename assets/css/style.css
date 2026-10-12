@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
 @import url('fontawesome-all.min.css');
 
 /* Lenis Smooth Scroll Integration */
@@ -797,24 +798,6 @@ button:hover .roll-inner {
   transition: background var(--dur-s) var(--ease-out), transform var(--dur-m) var(--ease-soft), border-color var(--dur-s) var(--ease-out);
 }
 
-.project-card.project-card-static {
-  cursor: default;
-}
-
-.project-card.project-card-static:hover {
-  background: transparent;
-  transform: none;
-}
-
-.project-card.project-card-static:hover .project-header h3 {
-  color: inherit;
-}
-
-.project-card.project-card-static:hover .project-image {
-  transform: none;
-  filter: grayscale(1);
-}
-
 .project-card:hover {
   background: rgba(255, 255, 255, 0.015);
   transform: translateY(-4px);
@@ -1017,15 +1000,13 @@ button:hover .roll-inner {
   -webkit-backdrop-filter: blur(12px);
   z-index: 100;
   opacity: 0;
-  visibility: hidden;
   pointer-events: none;
   overscroll-behavior: contain;
-  transition: opacity var(--dur-m) var(--ease-out), visibility var(--dur-m) var(--ease-out);
+  transition: opacity var(--dur-m) var(--ease-out);
 }
 
 .project-drawer-overlay.open {
   opacity: 1;
-  visibility: visible;
   pointer-events: auto;
 }
 
@@ -1044,9 +1025,8 @@ button:hover .roll-inner {
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  visibility: hidden;
   transform: translateX(100%);
-  transition: transform var(--dur-m) var(--ease-in-out), visibility var(--dur-m) var(--ease-in-out);
+  transition: transform var(--dur-m) var(--ease-in-out);
 }
 
 .drawer-chrome {
@@ -1091,7 +1071,6 @@ button:hover .roll-inner {
 
 .project-drawer-overlay.open .project-drawer {
   transform: translateX(0);
-  visibility: visible;
 }
 
 .drawer-close-btn {
@@ -1672,29 +1651,7 @@ button:hover .roll-inner {
   transform: translate(3px, -3px);
 }
 
-.contact-phone {
-  color: #0a0a0a;
-  font-family: var(--font-serif);
-  font-size: clamp(1.2rem, 2.3vw, 2.4rem);
-  letter-spacing: -0.04em;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.65rem;
-  transition: color var(--dur-s) var(--ease-out);
-  margin-top: 0.25rem;
-}
-
-.contact-phone:hover {
-  color: var(--accent);
-}
-
-.contact-phone:hover .contact-email-arrow {
-  transform: translate(3px, -3px);
-}
-
-.copy-email-btn,
-.copy-phone-btn {
+.copy-email-btn {
   background: transparent;
   border: 1px solid var(--border-light);
   padding: 0.4rem 0.85rem;
@@ -1710,8 +1667,7 @@ button:hover .roll-inner {
   transition: all var(--dur-s) var(--ease-out);
 }
 
-.copy-email-btn:hover,
-.copy-phone-btn:hover {
+.copy-email-btn:hover {
   border-color: #0a0a0a;
   color: #0a0a0a;
   background: rgba(0, 0, 0, 0.05);
