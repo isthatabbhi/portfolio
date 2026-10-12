@@ -421,7 +421,7 @@ button:hover .roll-inner {
 .hero-copy {
   position: relative;
   z-index: 2;
-  max-width: 44rem;
+  max-width: 54rem;
   padding-bottom: 2rem;
 }
 
@@ -461,17 +461,17 @@ button:hover .roll-inner {
 .hero-heading {
   margin: 0;
   font-family: var(--font-serif);
-  font-size: clamp(3.8rem, 8.5vw, 8.5rem);
+  font-size: clamp(3.2rem, 6.2vw, 5.8rem);
   font-weight: 400;
-  letter-spacing: -0.06em;
-  line-height: 0.92;
+  letter-spacing: -0.045em;
+  line-height: 1.02;
   color: #ffffff;
   padding-bottom: 0.08em;
 }
 
 .hero-heading > span {
   display: block;
-  padding-left: clamp(2rem, 6vw, 6rem);
+  padding-left: clamp(1.5rem, 4vw, 4rem);
   color: rgba(255, 255, 255, 0.9);
 }
 
@@ -480,15 +480,19 @@ button:hover .roll-inner {
   flex-direction: column;
   align-items: flex-start;
   gap: 2.2rem;
-  margin-top: 3.5rem;
+  margin-top: 3rem;
 }
 
 .hero-description {
-  max-width: 32rem;
+  max-width: 36rem;
   margin: 0;
   color: var(--text-secondary);
-  font-size: 0.95rem;
-  line-height: 1.65;
+  font-size: 1.05rem;
+  line-height: 1.75;
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+  -webkit-hyphens: auto;
   text-shadow: 0 1px 14px rgba(0, 0, 0, 0.95), 0 0 3px rgba(0, 0, 0, 0.9);
 }
 
@@ -1820,11 +1824,12 @@ button:hover .roll-inner {
     padding-bottom: 0;
   }
   .hero-heading {
-    max-width: 9ch;
-    font-size: clamp(3.8rem, 18vw, 7.5rem);
+    max-width: none;
+    font-size: clamp(2.8rem, 11vw, 4.4rem);
+    line-height: 1.05;
   }
   .hero-heading > span {
-    padding-left: 8vw;
+    padding-left: 0;
   }
   .hero-lower {
     align-items: flex-start;
