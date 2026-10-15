@@ -163,6 +163,46 @@
           </p>
         </div>
       </div>
+
+      <div class="drawer-project-content" data-project-content="signal" hidden>
+        <div class="drawer-kicker">/ Monitoring &amp; Data Products</div>
+        <h2 class="drawer-title">Signal</h2>
+
+        <div class="drawer-tags">
+          <span class="drawer-tag">Grafana</span>
+          <span class="drawer-tag">Prometheus</span>
+          <span class="drawer-tag">Python</span>
+          <span class="drawer-tag">Apache Airflow</span>
+          <span class="drawer-tag">SQL</span>
+          <span class="drawer-tag">Real-time Dashboards</span>
+        </div>
+        <div class="drawer-scroll-cue" aria-hidden="true"><i class="fas fa-arrow-down"></i> Scroll for details</div>
+
+        <div class="drawer-body">
+          <div class="drawer-section-title"><i class="fas fa-chart-line"></i> Architecture Overview</div>
+          <p>
+            Signal is a monitoring and observability layer built to surface actionable insights from complex data pipelines. It combines real-time dashboards, pipeline health checks, and developer-facing workflows into a single pane of glass — making it easier for teams to read, inspect, and scale distributed data infrastructure.
+          </p>
+
+          <div class="drawer-arch-box">
+            <strong>Ingestion</strong> Prometheus exporters and custom Python collectors gather metrics from pipeline stages, task schedulers, and infrastructure endpoints.<br /><br />
+            <strong>Processing</strong> Time-series data is aggregated, enriched with metadata labels, and stored for efficient range queries and alerting rules.<br /><br />
+            <strong>Visualization</strong> Grafana dashboards deliver real-time views across pipeline latency, throughput, error rates, and resource utilization.
+          </div>
+
+          <div class="drawer-section-title"><i class="fas fa-tachometer-alt"></i> Key Engineering Highlights</div>
+          <p>
+            &bull; <strong>Pipeline Health Monitoring:</strong> Automated checks track Airflow DAG execution times, task failures, and retry patterns across environments.<br />
+            &bull; <strong>Anomaly Detection:</strong> Threshold-based and trend-aware alerting surfaces data quality drifts before downstream consumers are impacted.<br />
+            &bull; <strong>Developer Workflows:</strong> Self-service dashboards allow engineers to drill into specific pipeline stages without navigating raw logs.
+          </p>
+
+          <div class="drawer-section-title"><i class="fas fa-tools"></i> Tech Stack &amp; Tools</div>
+          <p>
+            Grafana &bull; Prometheus &bull; Python &bull; Apache Airflow &bull; SQL &bull; Docker &bull; REST APIs
+          </p>
+        </div>
+      </div>
         </div>
       </div>
     </aside>
@@ -353,7 +393,8 @@
                 <p class="project-kind" data-testid="project-03-kind">Monitoring &amp; data products</p>
               </div>
               <div class="project-detail">
-                <span data-testid="project-03-year">Selected practice</span>
+                <span data-testid="project-03-year">2026</span>
+                <svg class="project-year-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
               </div>
             </div>
             <p class="project-summary" data-testid="project-03-summary">

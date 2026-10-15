@@ -123,6 +123,7 @@ const drawerElement = document.querySelector('.project-drawer');
 const drawerScroll = document.querySelector('.drawer-scroll');
 const finguardCard = document.querySelector('[data-testid="project-finguard-card"]');
 const cloudAtlasCard = document.querySelector('[data-testid="project-cloud-atlas-card"]');
+const signalCard = document.querySelector('[data-testid="project-signal-noise-card"]');
 const cloudAtlasMoreBtn = document.querySelector('[data-testid="project-02-repo-link"]');
 const drawerProjects = document.querySelectorAll('[data-project-content]');
 let drawerPreviousFocus;
@@ -156,7 +157,8 @@ function selectDrawerProject(project) {
     projectContent.hidden = projectContent.dataset.projectContent !== project;
   });
   if (drawerElement) {
-    const projectName = project === 'cloud-atlas' ? 'Cloud Atlas' : 'FinGuard';
+    const projectNames = { 'cloud-atlas': 'Cloud Atlas', 'finguard': 'FinGuard', 'signal': 'Signal' };
+    const projectName = projectNames[project] || project;
     drawerElement.setAttribute('aria-label', `Project details for ${projectName}`);
   }
   if (drawerLenis) {
@@ -214,6 +216,10 @@ if (cloudAtlasMoreBtn) {
     e.stopPropagation();
     openDrawer('cloud-atlas');
   });
+}
+
+if (signalCard) {
+  signalCard.addEventListener('click', () => openDrawer('signal'));
 }
 
 if (drawerCloseBtn) {
