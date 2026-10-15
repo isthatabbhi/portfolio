@@ -1218,7 +1218,6 @@ button:hover .roll-inner {
 .drawer-arch-box {
   background: #18181c;
   border: 1px solid var(--border-color);
-  border-left: 3px solid var(--accent);
   border-radius: 6px;
   padding: 1.35rem;
   margin: 1.4rem 0;
