@@ -1387,7 +1387,9 @@ button:hover .roll-inner {
 
 .resume-viewer {
   width: 100%;
-  height: 100%;
+  height: auto;
+  max-height: calc(92vh - 4.25rem);
+  max-height: calc(92dvh - 4.25rem);
   overflow: auto;
   overscroll-behavior: contain;
   touch-action: none;
@@ -2093,6 +2095,7 @@ button:hover .roll-inner {
     filter: none !important;
   }
 }
+
 
 
 
