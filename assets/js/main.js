@@ -46,7 +46,10 @@ function lockBody() {
 function unlockBody() {
   document.body.classList.remove('modal-open');
   document.body.style.top = '';
-  window.scrollTo(0, savedScrollY);
+  // The restore must be instant: with the page's smooth-scroll styling
+  // a plain scrollTo animates the jump, visibly gliding the page from
+  // the top back to where the overlay was opened.
+  window.scrollTo({ top: savedScrollY, left: 0, behavior: 'instant' });
 }
 
 initLenis();
@@ -579,6 +582,7 @@ if (mobileBtn && mobileNav) {
     });
   });
 }
+
 
 
 
