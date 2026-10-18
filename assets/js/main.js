@@ -34,6 +34,21 @@ function destroyLenis() {
   }
 }
 
+// iOS Safari scrolls the page behind a modal even with overflow: hidden
+// on the body, so opening a drawer or modal also pins the body in place
+// and closing it restores the exact scroll position.
+let savedScrollY = 0;
+function lockBody() {
+  savedScrollY = window.scrollY || window.pageYOffset || 0;
+  document.body.style.top = `-${savedScrollY}px`;
+  document.body.classList.add('modal-open');
+}
+function unlockBody() {
+  document.body.classList.remove('modal-open');
+  document.body.style.top = '';
+  window.scrollTo(0, savedScrollY);
+}
+
 initLenis();
 
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -169,7 +184,7 @@ function openDrawer(project = 'finguard') {
     drawerPreviousFocus = document.activeElement;
     selectDrawerProject(project);
     drawerOverlay.classList.add('open');
-    document.body.classList.add('modal-open');
+    lockBody();
     destroyLenis();
     if (drawerLenis) {
       drawerLenis.start();
@@ -186,7 +201,7 @@ function closeDrawer() {
   if (drawerOverlay) {
     drawerOverlay.classList.remove('open');
     if (!resumeModalOverlay || !resumeModalOverlay.classList.contains('open')) {
-      document.body.classList.remove('modal-open');
+      unlockBody();
       initLenis();
     }
     if (drawerLenis) {
@@ -241,7 +256,7 @@ const openResumeBtns = document.querySelectorAll('.open-resume-modal-btn');
 function openResumeModal() {
   if (resumeModalOverlay) {
     resumeModalOverlay.classList.add('open');
-    document.body.classList.add('modal-open');
+    lockBody();
     destroyLenis();
   }
 }
@@ -250,7 +265,7 @@ function closeResumeModal() {
   if (resumeModalOverlay) {
     resumeModalOverlay.classList.remove('open');
     if (!drawerOverlay || !drawerOverlay.classList.contains('open')) {
-      document.body.classList.remove('modal-open');
+      unlockBody();
       initLenis();
     }
   }
