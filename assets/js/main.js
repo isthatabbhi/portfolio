@@ -1,7 +1,8 @@
 
 // 1. Lenis Smooth Inertia Scroll Engine
 let lenis;
-if (typeof Lenis !== 'undefined') {
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+if (typeof Lenis !== 'undefined' && !prefersReducedMotion) {
   lenis = new Lenis({
     duration: 1.2,
     easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -129,7 +130,7 @@ const drawerProjects = document.querySelectorAll('[data-project-content]');
 let drawerPreviousFocus;
 let drawerLenis;
 
-if (drawerScroll && typeof Lenis !== 'undefined') {
+if (drawerScroll && typeof Lenis !== 'undefined' && !prefersReducedMotion) {
   drawerLenis = new Lenis({
     wrapper: drawerScroll,
     content: drawerScroll.querySelector('.drawer-scroll-inner') || drawerScroll.firstElementChild,
@@ -376,3 +377,4 @@ if (mobileBtn && mobileNav) {
     });
   });
 }
+
