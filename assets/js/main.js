@@ -348,12 +348,17 @@ if (drawerElement && drawerScroll) {
 const resumeModalOverlay = document.getElementById('resume-modal-overlay');
 const resumeCloseBtn = document.getElementById('resume-close-btn');
 const openResumeBtns = document.querySelectorAll('.open-resume-modal-btn');
+const resumeModalEl = resumeModalOverlay ? resumeModalOverlay.querySelector('.resume-modal') : null;
+const resumeViewer = document.getElementById('resume-viewer');
 
 function openResumeModal() {
   if (resumeModalOverlay) {
     resumeModalOverlay.classList.add('open');
     lockBody();
     destroyLenis();
+    if (resumeViewer) {
+      resumeViewer.scrollTop = 0;
+    }
   }
 }
 
@@ -385,6 +390,98 @@ if (resumeModalOverlay) {
   resumeModalOverlay.addEventListener('wheel', (e) => {
     e.stopPropagation();
   }, { passive: true });
+}
+
+// Manual touch scrolling for the resume preview, same approach as the
+// project drawers: mobile browsers do not reliably route swipes into
+// this panel, so drags are applied to the viewer directly.
+if (resumeModalEl && resumeViewer) {
+  let rTouchStartY = null;
+  let rTouchStartScrollTop = 0;
+  let rTouchDragged = false;
+  let rLastTouchY = 0;
+  let rLastTouchTime = 0;
+  let rFlingVelocity = 0;
+  let rMomentumFrame = null;
+  let rSuppressNextClick = false;
+  let rSuppressClickUntil = 0;
+
+  const rStopMomentum = () => {
+    if (rMomentumFrame !== null) {
+      cancelAnimationFrame(rMomentumFrame);
+      rMomentumFrame = null;
+    }
+  };
+
+  resumeModalEl.addEventListener('touchstart', (e) => {
+    if (e.touches.length !== 1) return;
+    rStopMomentum();
+    rSuppressNextClick = false;
+    if (e.target instanceof Element && e.target.closest('.resume-modal-header')) {
+      rTouchStartY = null;
+      return;
+    }
+    rTouchStartY = e.touches[0].clientY;
+    rLastTouchY = rTouchStartY;
+    rLastTouchTime = performance.now();
+    rTouchStartScrollTop = resumeViewer.scrollTop;
+    rTouchDragged = false;
+    rFlingVelocity = 0;
+  }, { passive: true });
+
+  resumeModalEl.addEventListener('touchmove', (e) => {
+    if (rTouchStartY === null || e.touches.length !== 1) return;
+    const y = e.touches[0].clientY;
+    const now = performance.now();
+    const dt = now - rLastTouchTime;
+    if (dt > 0) {
+      rFlingVelocity = (rLastTouchY - y) / dt;
+    }
+    rLastTouchY = y;
+    rLastTouchTime = now;
+    const dy = rTouchStartY - y;
+    if (!rTouchDragged && Math.abs(dy) < 10) return;
+    rTouchDragged = true;
+    resumeViewer.scrollTop = rTouchStartScrollTop + dy;
+    e.preventDefault();
+  }, { passive: false });
+
+  const rEndTouch = () => {
+    if (rTouchStartY === null) return;
+    rTouchStartY = null;
+    if (!rTouchDragged) return;
+    rSuppressNextClick = true;
+    rSuppressClickUntil = performance.now() + 500;
+    if (performance.now() - rLastTouchTime > 80) {
+      rFlingVelocity = 0;
+    }
+    if (Math.abs(rFlingVelocity) > 0.05) {
+      let v = rFlingVelocity;
+      const step = () => {
+        v *= 0.94;
+        const before = resumeViewer.scrollTop;
+        resumeViewer.scrollTop = before + v * 16;
+        if (Math.abs(v) < 0.02 || resumeViewer.scrollTop === before) {
+          rMomentumFrame = null;
+          return;
+        }
+        rMomentumFrame = requestAnimationFrame(step);
+      };
+      rMomentumFrame = requestAnimationFrame(step);
+    }
+  };
+  resumeModalEl.addEventListener('touchend', rEndTouch);
+  resumeModalEl.addEventListener('touchcancel', rEndTouch);
+
+  resumeModalEl.addEventListener('click', (e) => {
+    if (rSuppressNextClick) {
+      rSuppressNextClick = false;
+      if (performance.now() < rSuppressClickUntil) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+    }
+  }, true);
 }
 
 window.addEventListener('keydown', (e) => {
@@ -482,6 +579,7 @@ if (mobileBtn && mobileNav) {
     });
   });
 }
+
 
 
 
