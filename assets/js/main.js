@@ -248,6 +248,90 @@ if (drawerOverlay) {
   }, { passive: true });
 }
 
+// Manual touch scrolling for the drawer panel. Some mobile browsers
+// route swipe gestures that start on drawer content to the page
+// behind, so drags anywhere on the panel are applied to the drawer's
+// own scroll area directly, with momentum and click suppression.
+if (drawerElement && drawerScroll) {
+  let touchStartY = null;
+  let touchStartScrollTop = 0;
+  let touchDragged = false;
+  let lastTouchY = 0;
+  let lastTouchTime = 0;
+  let flingVelocity = 0;
+  let momentumFrame = null;
+  let suppressNextClick = false;
+
+  const stopMomentum = () => {
+    if (momentumFrame !== null) {
+      cancelAnimationFrame(momentumFrame);
+      momentumFrame = null;
+    }
+  };
+
+  drawerElement.addEventListener('touchstart', (e) => {
+    if (e.touches.length !== 1) return;
+    stopMomentum();
+    touchStartY = e.touches[0].clientY;
+    lastTouchY = touchStartY;
+    lastTouchTime = performance.now();
+    touchStartScrollTop = drawerScroll.scrollTop;
+    touchDragged = false;
+    flingVelocity = 0;
+  }, { passive: true });
+
+  drawerElement.addEventListener('touchmove', (e) => {
+    if (touchStartY === null || e.touches.length !== 1) return;
+    const y = e.touches[0].clientY;
+    const now = performance.now();
+    const dt = now - lastTouchTime;
+    if (dt > 0) {
+      flingVelocity = (lastTouchY - y) / dt;
+    }
+    lastTouchY = y;
+    lastTouchTime = now;
+    const dy = touchStartY - y;
+    if (!touchDragged && Math.abs(dy) < 5) return;
+    touchDragged = true;
+    drawerScroll.scrollTop = touchStartScrollTop + dy;
+    e.preventDefault();
+  }, { passive: false });
+
+  const endTouch = () => {
+    if (touchStartY === null) return;
+    touchStartY = null;
+    if (!touchDragged) return;
+    suppressNextClick = true;
+    if (performance.now() - lastTouchTime > 80) {
+      flingVelocity = 0;
+    }
+    if (Math.abs(flingVelocity) > 0.05) {
+      let v = flingVelocity;
+      const step = () => {
+        v *= 0.94;
+        const before = drawerScroll.scrollTop;
+        drawerScroll.scrollTop = before + v * 16;
+        if (Math.abs(v) < 0.02 || drawerScroll.scrollTop === before) {
+          momentumFrame = null;
+          return;
+        }
+        momentumFrame = requestAnimationFrame(step);
+      };
+      momentumFrame = requestAnimationFrame(step);
+    }
+  };
+  drawerElement.addEventListener('touchend', endTouch);
+  drawerElement.addEventListener('touchcancel', endTouch);
+
+  drawerElement.addEventListener('click', (e) => {
+    if (suppressNextClick) {
+      suppressNextClick = false;
+      e.preventDefault();
+      e.stopPropagation();
+    }
+  }, true);
+}
+
 // 5. Interactive Resume Preview Modal
 const resumeModalOverlay = document.getElementById('resume-modal-overlay');
 const resumeCloseBtn = document.getElementById('resume-close-btn');
@@ -386,5 +470,6 @@ if (mobileBtn && mobileNav) {
     });
   });
 }
+
 
 
