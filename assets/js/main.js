@@ -130,29 +130,8 @@ const drawerProjects = document.querySelectorAll('[data-project-content]');
 let drawerPreviousFocus;
 let drawerLenis;
 
-if (drawerScroll && typeof Lenis !== 'undefined' && !prefersReducedMotion) {
-  drawerLenis = new Lenis({
-    wrapper: drawerScroll,
-    content: drawerScroll.querySelector('.drawer-scroll-inner') || drawerScroll.firstElementChild,
-    duration: 1.1,
-    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-    orientation: 'vertical',
-    gestureOrientation: 'vertical',
-    smoothWheel: true,
-    wheelMultiplier: 1,
-    touchMultiplier: 1.5,
-    infinite: false,
-  });
-
-  function drawerRaf(time) {
-    if (drawerLenis && drawerOverlay?.classList.contains('open')) {
-      drawerLenis.raf(time);
-    }
-    requestAnimationFrame(drawerRaf);
-  }
-  requestAnimationFrame(drawerRaf);
-}
-
+// The drawer scrolls natively via overflow-y: auto on .drawer-scroll.
+// A Lenis instance on the drawer was swallowing wheel and touch input, so it is intentionally not created.
 function selectDrawerProject(project) {
   drawerProjects.forEach((projectContent) => {
     projectContent.hidden = projectContent.dataset.projectContent !== project;
@@ -377,4 +356,5 @@ if (mobileBtn && mobileNav) {
     });
   });
 }
+
 
