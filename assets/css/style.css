@@ -1265,7 +1265,9 @@ button:hover .roll-inner {
 .resume-modal {
   position: relative;
   width: min(850px, 94vw);
-  height: min(88vh, 900px);
+  height: auto;
+  max-height: 92vh;
+  max-height: min(92dvh, 940px);
   background: #151518;
   border: 1px solid var(--border-color);
   border-radius: 12px;
@@ -1286,7 +1288,7 @@ button:hover .roll-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   gap: 0.6rem 1rem;
   padding: 1.1rem 1.5rem;
   border-bottom: 1px solid var(--border-color);
@@ -1362,9 +1364,9 @@ button:hover .roll-inner {
 }
 
 .resume-modal-body {
-  flex: 1;
+  flex: 1 1 auto;
+  min-height: 0;
   width: 100%;
-  height: 100%;
   background: #202024;
   position: relative;
   overflow: hidden;
@@ -1391,6 +1393,7 @@ button:hover .roll-inner {
   display: block;
   width: 100%;
   height: auto;
+  aspect-ratio: 1241 / 1754;
   user-select: none;
   -webkit-user-select: none;
   -webkit-touch-callout: none;
@@ -1997,12 +2000,23 @@ button:hover .roll-inner {
     height: 100dvh;
     max-height: 100dvh;
   }
+  .resume-modal-overlay {
+    padding: 0.75rem;
+  }
   .resume-modal-header {
-    padding: 0.9rem 1.1rem;
+    padding: 0.85rem 1rem;
+    gap: 0.5rem 0.75rem;
   }
   .resume-modal-header h3 {
-    font-size: 0.8rem;
-    letter-spacing: 0.05em;
+    font-size: 0.74rem;
+    letter-spacing: 0.04em;
+  }
+  .resume-modal-actions {
+    gap: 0.55rem;
+  }
+  .resume-download-btn {
+    font-size: 0.62rem;
+    padding: 0.42rem 0.8rem;
   }
   .drawer-scroll {
     overflow-y: auto;
@@ -2014,6 +2028,13 @@ button:hover .roll-inner {
 }
 
 @media (max-width: 480px) {
+  .resume-modal-header h3 {
+    font-size: 0.68rem;
+    letter-spacing: 0.03em;
+  }
+  .resume-modal-header h3 i {
+    display: none;
+  }
   .hero-meta,
   .footer-bottom {
     align-items: flex-start;
@@ -2053,6 +2074,7 @@ button:hover .roll-inner {
     filter: none !important;
   }
 }
+
 
 
 
