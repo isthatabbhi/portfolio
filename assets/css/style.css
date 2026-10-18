@@ -1286,12 +1286,16 @@ button:hover .roll-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.6rem 1rem;
   padding: 1.1rem 1.5rem;
   border-bottom: 1px solid var(--border-color);
   background: #1a1a1e;
 }
 
 .resume-modal-header h3 {
+  white-space: nowrap;
+  min-width: 0;
   font-size: 0.92rem;
   font-weight: 600;
   letter-spacing: 0.08em;
@@ -1310,11 +1314,14 @@ button:hover .roll-inner {
   display: flex;
   align-items: center;
   gap: 0.85rem;
+  flex-shrink: 0;
+  margin-left: auto;
 }
 
 .resume-download-btn {
   display: inline-flex;
   align-items: center;
+  white-space: nowrap;
   gap: 0.45rem;
   background: var(--accent);
   color: #0a0a0a;
@@ -1333,17 +1340,18 @@ button:hover .roll-inner {
 }
 
 .resume-close-btn {
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid var(--border-color);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.16);
   color: #fff;
-  width: 2rem;
-  height: 2rem;
+  width: 2.75rem;
+  height: 2.75rem;
+  flex-shrink: 0;
   border-radius: 50%;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.9rem;
+  font-size: 1.15rem;
   transition: all var(--dur-s) var(--ease-out);
 }
 
@@ -1989,6 +1997,13 @@ button:hover .roll-inner {
     height: 100dvh;
     max-height: 100dvh;
   }
+  .resume-modal-header {
+    padding: 0.9rem 1.1rem;
+  }
+  .resume-modal-header h3 {
+    font-size: 0.8rem;
+    letter-spacing: 0.05em;
+  }
   .drawer-scroll {
     overflow-y: auto;
     padding-bottom: 4rem;
@@ -2038,6 +2053,7 @@ button:hover .roll-inner {
     filter: none !important;
   }
 }
+
 
 
 
