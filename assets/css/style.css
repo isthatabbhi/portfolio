@@ -766,6 +766,18 @@ button:hover .roll-inner {
   color: #0a0a0a;
 }
 
+.signal-card-accent i {
+  transition: color var(--dur-s) var(--ease-out), transform var(--dur-s) var(--ease-out), filter var(--dur-s) var(--ease-out);
+}
+
+.signal-card-accent:hover i,
+.signal-card-accent:focus-visible i,
+.signal-card-accent:active i {
+  color: #ffffff;
+  filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.55));
+  transform: scale(1.12);
+}
+
 .stat-number {
   font-family: var(--font-serif);
   font-size: 4.4rem;
@@ -1345,15 +1357,15 @@ button:hover .roll-inner {
   background: rgba(255, 255, 255, 0.06);
   border: 1px solid rgba(255, 255, 255, 0.16);
   color: #fff;
-  width: 2.75rem;
-  height: 2.75rem;
+  width: 2.5rem;
+  height: 2.5rem;
   flex-shrink: 0;
   border-radius: 50%;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.15rem;
+  font-size: 1.05rem;
   transition: all var(--dur-s) var(--ease-out);
 }
 
@@ -1376,7 +1388,7 @@ button:hover .roll-inner {
 .resume-viewer {
   width: 100%;
   height: 100%;
-  overflow-y: auto;
+  overflow: auto;
   overscroll-behavior: contain;
   touch-action: none;
   scroll-behavior: auto;
@@ -1392,6 +1404,7 @@ button:hover .roll-inner {
 .resume-preview-img {
   display: block;
   width: 100%;
+  max-width: none;
   height: auto;
   aspect-ratio: 1241 / 1754;
   user-select: none;
@@ -2027,6 +2040,12 @@ button:hover .roll-inner {
   }
 }
 
+@media (max-width: 640px) {
+  .hero-description {
+    display: none;
+  }
+}
+
 @media (max-width: 480px) {
   .resume-modal-header h3 {
     font-size: 0.68rem;
@@ -2074,6 +2093,7 @@ button:hover .roll-inner {
     filter: none !important;
   }
 }
+
 
 
 
