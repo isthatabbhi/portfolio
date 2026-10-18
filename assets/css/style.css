@@ -1363,10 +1363,29 @@ button:hover .roll-inner {
   overscroll-behavior: contain;
 }
 
-.resume-iframe {
+.resume-viewer {
   width: 100%;
   height: 100%;
-  border: none;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  touch-action: none;
+  scroll-behavior: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.resume-viewer::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+.resume-preview-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
 }
 
 /* Capabilities */
@@ -2019,6 +2038,7 @@ button:hover .roll-inner {
     filter: none !important;
   }
 }
+
 
 
 
