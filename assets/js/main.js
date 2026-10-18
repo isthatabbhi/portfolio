@@ -272,6 +272,13 @@ if (drawerElement && drawerScroll) {
   drawerElement.addEventListener('touchstart', (e) => {
     if (e.touches.length !== 1) return;
     stopMomentum();
+    // Touches on the top bar (project label and close button) stay plain
+    // taps: treating their small natural movement as a scroll drag would
+    // cancel the click and force a second tap to close the drawer.
+    if (e.target instanceof Element && e.target.closest('.drawer-chrome')) {
+      touchStartY = null;
+      return;
+    }
     touchStartY = e.touches[0].clientY;
     lastTouchY = touchStartY;
     lastTouchTime = performance.now();
@@ -291,7 +298,7 @@ if (drawerElement && drawerScroll) {
     lastTouchY = y;
     lastTouchTime = now;
     const dy = touchStartY - y;
-    if (!touchDragged && Math.abs(dy) < 5) return;
+    if (!touchDragged && Math.abs(dy) < 10) return;
     touchDragged = true;
     drawerScroll.scrollTop = touchStartScrollTop + dy;
     e.preventDefault();
@@ -470,6 +477,7 @@ if (mobileBtn && mobileNav) {
     });
   });
 }
+
 
 
 
