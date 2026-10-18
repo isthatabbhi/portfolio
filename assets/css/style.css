@@ -1056,10 +1056,9 @@ button:hover .roll-inner {
   flex: 1;
   min-height: 0;
   overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
   overscroll-behavior: contain;
   touch-action: none;
-  scroll-behavior: smooth;
+  scroll-behavior: auto;
   padding: 0;
 }
 
@@ -2020,5 +2019,6 @@ button:hover .roll-inner {
     filter: none !important;
   }
 }
+
 
 
