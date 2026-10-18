@@ -353,6 +353,7 @@ const resumeCloseBtn = document.getElementById('resume-close-btn');
 const openResumeBtns = document.querySelectorAll('.open-resume-modal-btn');
 const resumeModalEl = resumeModalOverlay ? resumeModalOverlay.querySelector('.resume-modal') : null;
 const resumeViewer = document.getElementById('resume-viewer');
+let resumeZoomScale = 1;
 
 function openResumeModal() {
   if (resumeModalOverlay) {
@@ -360,7 +361,13 @@ function openResumeModal() {
     lockBody();
     destroyLenis();
     if (resumeViewer) {
+      resumeZoomScale = 1;
+      const previewImg = resumeViewer.querySelector('.resume-preview-img');
+      if (previewImg) {
+        previewImg.style.width = '';
+      }
       resumeViewer.scrollTop = 0;
+      resumeViewer.scrollLeft = 0;
     }
   }
 }
@@ -395,12 +402,17 @@ if (resumeModalOverlay) {
   }, { passive: true });
 }
 
-// Manual touch scrolling for the resume preview, same approach as the
-// project drawers: mobile browsers do not reliably route swipes into
-// this panel, so drags are applied to the viewer directly.
+// Manual touch scrolling and pinch zoom for the resume preview, same
+// approach as the project drawers: mobile browsers do not reliably
+// route swipes into this panel, so drags are applied to the viewer
+// directly. Pinching scales the page by widening it inside the viewer,
+// which keeps the viewer's own scrolling in charge of panning.
 if (resumeModalEl && resumeViewer) {
+  const resumePreviewImg = resumeViewer.querySelector('.resume-preview-img');
   let rTouchStartY = null;
+  let rTouchStartX = null;
   let rTouchStartScrollTop = 0;
+  let rTouchStartScrollLeft = 0;
   let rTouchDragged = false;
   let rLastTouchY = 0;
   let rLastTouchTime = 0;
@@ -408,6 +420,9 @@ if (resumeModalEl && resumeViewer) {
   let rMomentumFrame = null;
   let rSuppressNextClick = false;
   let rSuppressClickUntil = 0;
+  let rPinching = false;
+  let rPinchStartDist = 0;
+  let rPinchStartScale = 1;
 
   const rStopMomentum = () => {
     if (rMomentumFrame !== null) {
@@ -416,25 +431,64 @@ if (resumeModalEl && resumeViewer) {
     }
   };
 
+  const rPinchDist = (e) => Math.hypot(
+    e.touches[0].clientX - e.touches[1].clientX,
+    e.touches[0].clientY - e.touches[1].clientY
+  );
+
+  const rApplyScale = (newScale, centerX, centerY) => {
+    if (!resumePreviewImg) return;
+    const rect = resumeViewer.getBoundingClientRect();
+    const offX = centerX - rect.left;
+    const offY = centerY - rect.top;
+    const fracX = (resumeViewer.scrollLeft + offX) / resumePreviewImg.offsetWidth;
+    const fracY = (resumeViewer.scrollTop + offY) / resumePreviewImg.offsetHeight;
+    resumeZoomScale = Math.min(3, Math.max(1, newScale));
+    resumePreviewImg.style.width = resumeZoomScale === 1 ? '' : `${resumeZoomScale * 100}%`;
+    resumeViewer.scrollLeft = fracX * resumePreviewImg.offsetWidth - offX;
+    resumeViewer.scrollTop = fracY * resumePreviewImg.offsetHeight - offY;
+  };
+
   resumeModalEl.addEventListener('touchstart', (e) => {
-    if (e.touches.length !== 1) return;
     rStopMomentum();
     rSuppressNextClick = false;
+    if (e.touches.length === 2) {
+      rPinching = true;
+      rTouchStartY = null;
+      rPinchStartDist = rPinchDist(e);
+      rPinchStartScale = resumeZoomScale;
+      return;
+    }
+    if (e.touches.length !== 1) return;
+    // Touches on the header stay plain taps, same rule as the drawers.
     if (e.target instanceof Element && e.target.closest('.resume-modal-header')) {
       rTouchStartY = null;
       return;
     }
     rTouchStartY = e.touches[0].clientY;
+    rTouchStartX = e.touches[0].clientX;
     rLastTouchY = rTouchStartY;
     rLastTouchTime = performance.now();
     rTouchStartScrollTop = resumeViewer.scrollTop;
+    rTouchStartScrollLeft = resumeViewer.scrollLeft;
     rTouchDragged = false;
     rFlingVelocity = 0;
   }, { passive: true });
 
   resumeModalEl.addEventListener('touchmove', (e) => {
+    if (rPinching && e.touches.length === 2) {
+      const dist = rPinchDist(e);
+      if (rPinchStartDist > 0) {
+        const centerX = (e.touches[0].clientX + e.touches[1].clientX) / 2;
+        const centerY = (e.touches[0].clientY + e.touches[1].clientY) / 2;
+        rApplyScale(rPinchStartScale * dist / rPinchStartDist, centerX, centerY);
+      }
+      e.preventDefault();
+      return;
+    }
     if (rTouchStartY === null || e.touches.length !== 1) return;
     const y = e.touches[0].clientY;
+    const x = e.touches[0].clientX;
     const now = performance.now();
     const dt = now - rLastTouchTime;
     if (dt > 0) {
@@ -443,13 +497,29 @@ if (resumeModalEl && resumeViewer) {
     rLastTouchY = y;
     rLastTouchTime = now;
     const dy = rTouchStartY - y;
-    if (!rTouchDragged && Math.abs(dy) < 10) return;
+    const dx = rTouchStartX - x;
+    if (!rTouchDragged && Math.abs(dy) < 10 && Math.abs(dx) < 10) return;
     rTouchDragged = true;
     resumeViewer.scrollTop = rTouchStartScrollTop + dy;
+    resumeViewer.scrollLeft = rTouchStartScrollLeft + dx;
     e.preventDefault();
   }, { passive: false });
 
-  const rEndTouch = () => {
+  const rEndTouch = (e) => {
+    if (rPinching) {
+      if (e.touches.length < 2) {
+        rPinching = false;
+        if (resumeZoomScale <= 1.02) {
+          resumeZoomScale = 1;
+          if (resumePreviewImg) {
+            resumePreviewImg.style.width = '';
+          }
+          resumeViewer.scrollLeft = 0;
+        }
+      }
+      rTouchStartY = null;
+      return;
+    }
     if (rTouchStartY === null) return;
     rTouchStartY = null;
     if (!rTouchDragged) return;
@@ -582,6 +652,7 @@ if (mobileBtn && mobileNav) {
     });
   });
 }
+
 
 
 
