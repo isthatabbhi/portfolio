@@ -19,6 +19,13 @@ body.modal-open {
   overflow: hidden !important;
 }
 
+body.modal-open {
+  position: fixed;
+  left: 0;
+  right: 0;
+  width: 100%;
+}
+
 /* Design Tokens */
 :root {
   --bg-dark: #0a0a0a;
@@ -1959,28 +1966,12 @@ button:hover .roll-inner {
     right: 1.25rem;
     bottom: 1.25rem;
   }
-  .drawer-chrome {
-    position: sticky;
-    top: 0;
-  }
   .project-drawer {
     height: 100dvh;
     max-height: 100dvh;
-    display: block;
-    overflow: hidden;
   }
   .drawer-scroll {
-    position: absolute;
-    top: 4.5rem;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    height: auto;
-    max-height: none;
-    overflow-y: scroll;
-    -webkit-overflow-scrolling: touch;
-    touch-action: pan-y;
-    overscroll-behavior-y: contain;
+    overflow-y: auto;
     padding-bottom: 4rem;
   }
   .drawer-scroll-cue {
