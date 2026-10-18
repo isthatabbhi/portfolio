@@ -630,7 +630,7 @@ button:hover .roll-inner {
 .certs-section,
 .experience-section {
   border-top: 1px solid var(--border-color);
-  padding-top: 8.5rem;
+  padding-top: 6.5rem;
   padding-bottom: 9rem;
 }
 
@@ -640,7 +640,7 @@ button:hover .roll-inner {
   grid-template-columns: minmax(280px, 32vw) minmax(0, 1.2fr);
   gap: 6vw;
   align-items: center;
-  margin-top: 3rem;
+  margin-top: 1.5rem;
 }
 
 .intro-heading {
@@ -1917,7 +1917,7 @@ button:hover .roll-inner {
   .capabilities-section,
   .certs-section,
   .experience-section {
-    padding-top: 6rem;
+    padding-top: 4rem;
     padding-bottom: 6rem;
   }
   .intro-grid,
@@ -2041,7 +2041,7 @@ button:hover .roll-inner {
 }
 
 @media (max-width: 640px) {
-  .hero-description {
+  .hero-lower {
     display: none;
   }
 }
@@ -2093,6 +2093,7 @@ button:hover .roll-inner {
     filter: none !important;
   }
 }
+
 
 
 
