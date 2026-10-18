@@ -2,7 +2,15 @@
 // 1. Lenis Smooth Inertia Scroll Engine
 let lenis;
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-if (typeof Lenis !== 'undefined' && !prefersReducedMotion) {
+
+function raf(time) {
+  if (lenis) lenis.raf(time);
+  requestAnimationFrame(raf);
+}
+requestAnimationFrame(raf);
+
+function initLenis() {
+  if (lenis || typeof Lenis === 'undefined' || prefersReducedMotion) return;
   lenis = new Lenis({
     duration: 1.2,
     easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -14,29 +22,36 @@ if (typeof Lenis !== 'undefined' && !prefersReducedMotion) {
     infinite: false,
     prevent: (node) => Boolean(node.closest && node.closest('.project-drawer')),
   });
-
-  function raf(time) {
-    lenis.raf(time);
-    requestAnimationFrame(raf);
-  }
-  requestAnimationFrame(raf);
-
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-      const targetId = this.getAttribute('href');
-      if (targetId === '#' || targetId === '#top') {
-        e.preventDefault();
-        lenis.scrollTo(0, { duration: 1.4 });
-      } else {
-        const target = document.querySelector(targetId);
-        if (target) {
-          e.preventDefault();
-          lenis.scrollTo(target, { offset: -70, duration: 1.4 });
-        }
-      }
-    });
-  });
 }
+
+// A stopped Lenis can still swallow touch gestures meant for an open
+// drawer or modal, so opening one destroys the engine outright and
+// closing it recreates the engine.
+function destroyLenis() {
+  if (lenis) {
+    lenis.destroy();
+    lenis = undefined;
+  }
+}
+
+initLenis();
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    if (!lenis) return;
+    const targetId = this.getAttribute('href');
+    if (targetId === '#' || targetId === '#top') {
+      e.preventDefault();
+      lenis.scrollTo(0, { duration: 1.4 });
+    } else {
+      const target = document.querySelector(targetId);
+      if (target) {
+        e.preventDefault();
+        lenis.scrollTo(target, { offset: -70, duration: 1.4 });
+      }
+    }
+  });
+});
 
 // 2. Micro Scroll Progress Bar & Back to Top Button
 const progressBar = document.getElementById('scroll-progress');
@@ -155,7 +170,7 @@ function openDrawer(project = 'finguard') {
     selectDrawerProject(project);
     drawerOverlay.classList.add('open');
     document.body.classList.add('modal-open');
-    if (lenis) lenis.stop();
+    destroyLenis();
     if (drawerLenis) {
       drawerLenis.start();
       drawerLenis.resize();
@@ -172,7 +187,7 @@ function closeDrawer() {
     drawerOverlay.classList.remove('open');
     if (!resumeModalOverlay || !resumeModalOverlay.classList.contains('open')) {
       document.body.classList.remove('modal-open');
-      if (lenis) lenis.start();
+      initLenis();
     }
     if (drawerLenis) {
       drawerLenis.stop();
@@ -227,7 +242,7 @@ function openResumeModal() {
   if (resumeModalOverlay) {
     resumeModalOverlay.classList.add('open');
     document.body.classList.add('modal-open');
-    if (lenis) lenis.stop();
+    destroyLenis();
   }
 }
 
@@ -236,7 +251,7 @@ function closeResumeModal() {
     resumeModalOverlay.classList.remove('open');
     if (!drawerOverlay || !drawerOverlay.classList.contains('open')) {
       document.body.classList.remove('modal-open');
-      if (lenis) lenis.start();
+      initLenis();
     }
   }
 }
