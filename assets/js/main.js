@@ -362,9 +362,9 @@ function openResumeModal() {
     destroyLenis();
     if (resumeViewer) {
       resumeZoomScale = 1;
-      const previewImg = resumeViewer.querySelector('.resume-preview-img');
-      if (previewImg) {
-        previewImg.style.width = '';
+      const previewWrap = resumeViewer.querySelector('.resume-preview-wrap');
+      if (previewWrap) {
+        previewWrap.style.width = '';
       }
       resumeViewer.scrollTop = 0;
       resumeViewer.scrollLeft = 0;
@@ -409,6 +409,7 @@ if (resumeModalOverlay) {
 // which keeps the viewer's own scrolling in charge of panning.
 if (resumeModalEl && resumeViewer) {
   const resumePreviewImg = resumeViewer.querySelector('.resume-preview-img');
+  const resumePreviewWrap = resumeViewer.querySelector('.resume-preview-wrap');
   let rTouchStartY = null;
   let rTouchStartX = null;
   let rTouchStartScrollTop = 0;
@@ -437,16 +438,16 @@ if (resumeModalEl && resumeViewer) {
   );
 
   const rApplyScale = (newScale, centerX, centerY) => {
-    if (!resumePreviewImg) return;
+    if (!resumePreviewWrap) return;
     const rect = resumeViewer.getBoundingClientRect();
     const offX = centerX - rect.left;
     const offY = centerY - rect.top;
-    const fracX = (resumeViewer.scrollLeft + offX) / resumePreviewImg.offsetWidth;
-    const fracY = (resumeViewer.scrollTop + offY) / resumePreviewImg.offsetHeight;
+    const fracX = (resumeViewer.scrollLeft + offX) / resumePreviewWrap.offsetWidth;
+    const fracY = (resumeViewer.scrollTop + offY) / resumePreviewWrap.offsetHeight;
     resumeZoomScale = Math.min(3, Math.max(1, newScale));
-    resumePreviewImg.style.width = resumeZoomScale === 1 ? '' : `${resumeZoomScale * 100}%`;
-    resumeViewer.scrollLeft = fracX * resumePreviewImg.offsetWidth - offX;
-    resumeViewer.scrollTop = fracY * resumePreviewImg.offsetHeight - offY;
+    resumePreviewWrap.style.width = resumeZoomScale === 1 ? '' : `${resumeZoomScale * 100}%`;
+    resumeViewer.scrollLeft = fracX * resumePreviewWrap.offsetWidth - offX;
+    resumeViewer.scrollTop = fracY * resumePreviewWrap.offsetHeight - offY;
   };
 
   resumeModalEl.addEventListener('touchstart', (e) => {
@@ -461,7 +462,7 @@ if (resumeModalEl && resumeViewer) {
     }
     if (e.touches.length !== 1) return;
     // Touches on the header stay plain taps, same rule as the drawers.
-    if (e.target instanceof Element && e.target.closest('.resume-modal-header, .resume-modal-links')) {
+    if (e.target instanceof Element && e.target.closest('.resume-modal-header')) {
       rTouchStartY = null;
       return;
     }
@@ -511,8 +512,8 @@ if (resumeModalEl && resumeViewer) {
         rPinching = false;
         if (resumeZoomScale <= 1.02) {
           resumeZoomScale = 1;
-          if (resumePreviewImg) {
-            resumePreviewImg.style.width = '';
+          if (resumePreviewWrap) {
+            resumePreviewWrap.style.width = '';
           }
           resumeViewer.scrollLeft = 0;
         }
