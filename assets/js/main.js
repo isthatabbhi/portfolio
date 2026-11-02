@@ -461,7 +461,7 @@ if (resumeModalEl && resumeViewer) {
     }
     if (e.touches.length !== 1) return;
     // Touches on the header stay plain taps, same rule as the drawers.
-    if (e.target instanceof Element && e.target.closest('.resume-modal-header')) {
+    if (e.target instanceof Element && e.target.closest('.resume-modal-header, .resume-modal-links')) {
       rTouchStartY = null;
       return;
     }
