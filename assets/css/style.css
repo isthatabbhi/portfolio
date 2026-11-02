@@ -1375,6 +1375,36 @@ button:hover .roll-inner {
   transform: rotate(90deg);
 }
 
+.resume-modal-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem 1.25rem;
+  padding: 0.65rem 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+  background: #1a1a1e;
+}
+
+.resume-modal-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--text-muted);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  transition: color var(--dur-s) var(--ease-out);
+}
+
+.resume-modal-links a:hover {
+  color: var(--accent-light);
+}
+
+.resume-modal-links a i {
+  color: var(--accent);
+}
+
 .resume-modal-body {
   flex: 1 1 auto;
   min-height: 0;
