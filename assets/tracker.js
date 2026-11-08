@@ -10,7 +10,7 @@
 (function () {
     'use strict';
 
-    var TRACK_URL = 'https://portfolio-tracker-141.azurewebsites.net/api/track';
+    var TRACK_URL = 'https://tracker.isthatabbhi.tech/api/track';
 
     function deviceType() {
         var ua = navigator.userAgent || '';
