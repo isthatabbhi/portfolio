@@ -145,7 +145,7 @@ document.querySelectorAll('.copy-email-btn').forEach(btn => {
   btn.addEventListener('click', (e) => {
     e.preventDefault();
     e.stopPropagation();
-    const email = btn.getAttribute('data-email') || 'corp.abhishekk@gmail.com';
+    const email = btn.getAttribute('data-email') || 'contact@isthatabbhi.tech';
     copyEmailToClipboard(email);
   });
 });
