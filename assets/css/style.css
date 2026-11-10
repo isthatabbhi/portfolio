@@ -715,6 +715,7 @@ button:hover .roll-inner {
   border-right: 1px solid var(--border-color);
   border-bottom: 1px solid var(--border-color);
   padding: 1.35rem;
+  overflow: hidden;
   transition: transform var(--dur-m) var(--ease-out), background var(--dur-m) var(--ease-out), border-color var(--dur-m) var(--ease-out);
 }
 
@@ -726,6 +727,7 @@ button:hover .roll-inner {
 
 .signal-card i,
 .signal-card svg {
+  align-self: flex-start;
   color: #a1a1a8;
   font-size: 1.4rem;
   transition: color var(--dur-s) var(--ease-out);
