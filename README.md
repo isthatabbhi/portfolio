@@ -10,7 +10,7 @@
 
 **An ultra-responsive, dark editorial engineering portfolio built for cloud, data, and distributed systems engineering.**
 
-[Explore Live Portfolio](https://isthatabbhi.tech) | [Project Documentation (PDF)](documentation.pdf) | [FinGuard Deep Dive](https://github.com/isthatabbhi/FinGuard-Real-Time-Fraud-Detection) | [LinkedIn](https://linkedin.com/in/isthatabbhi) | [Contact](mailto:corp.abhishekk@gmail.com)
+[Explore Live Portfolio](https://isthatabbhi.tech) | [Project Documentation (PDF)](documentation.pdf) | [FinGuard Deep Dive](https://github.com/isthatabbhi/FinGuard-Real-Time-Fraud-Detection) | [LinkedIn](https://linkedin.com/in/isthatabbhi) | [Contact](mailto:contact@isthatabbhi.tech)
 
 </div>
 
@@ -67,7 +67,7 @@ The portfolio is structured around a **dark editorial aesthetic** inspired by Sw
 | **Micro Scroll Progress** | A 2px top-mounted progress bar (`#scroll-progress`) tracking document viewport scroll percentage via GPU-accelerated CSS transforms (`scaleX`). |
 | **Interactive Resume Modal** | Embedded PDF viewer with custom toolbar controls, instant download action, and backdrop blur. Includes background scroll locking (`lenis.stop()`) and `Esc` key dismissal. |
 | **FinGuard Architectural Drawer** | Slide-out technical drawer detailing real-time Medallion architecture (Bronze, Silver, Gold), PySpark streaming clusters, and Kafka ingestion topologies. |
-| **One-Click Email Clipboard** | Async Clipboard API trigger with a floating status pill notification (`#toast`) upon copying `corp.abhishekk@gmail.com`. |
+| **One-Click Email Clipboard** | Async Clipboard API trigger with a floating status pill notification (`#toast`) upon copying `contact@isthatabbhi.tech`. |
 | **Standardized Verification Grid** | Responsive badge matrix with uniform logo constraints (`60px x 42px`) linking directly to credentials on Google, Meta, Databricks, Oracle, Anthropic, AWS, and Deloitte. |
 | **Footer Auto-Fading Pill** | Floating "Top" navigation pill that automatically senses footer proximity via `IntersectionObserver` and fades out to prevent overlapping contact links. |
 
@@ -215,7 +215,7 @@ To run and preview the portfolio locally:
 * **Live Website:** [https://isthatabbhi.tech](https://isthatabbhi.tech)
 * **LinkedIn:** [linkedin.com/in/isthatabbhi](https://linkedin.com/in/isthatabbhi)
 * **GitHub:** [github.com/isthatabbhi](https://github.com/isthatabbhi)
-* **Email:** [corp.abhishekk@gmail.com](mailto:corp.abhishekk@gmail.com)
+* **Email:** [contact@isthatabbhi.tech](mailto:contact@isthatabbhi.tech)
 
 ---
 
